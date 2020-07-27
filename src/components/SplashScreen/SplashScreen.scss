@@ -1,0 +1,47 @@
+// @import '~assets/stylesheets/vars.scss';
+
+.root {
+  flex: auto;
+}
+
+.splashScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+  z-index: 999;
+
+  width: 100%;
+  height: calc(100% - 120px);
+
+  // background-color: $chat-gray;
+}
+
+.center {
+  width: 450px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .05);  
+  padding: 53px;
+}
+
+.emoji {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #eee;
+  margin: 24px auto;
+  font-size: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 40px;
+  line-height: 1.62;
+  text-align: center;
+  color: #808b90;
+}

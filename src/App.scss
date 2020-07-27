@@ -1,6 +1,23 @@
-.App {
+
+.app {
+  background-color: red;
+  padding-top: 60px;
+  height: 100%;
+  display: flex;
+}
+
+.container {
+  height: 100%;
+  
+}
+
+
+
+/* .App {
   text-align: center;
 }
+
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +52,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
