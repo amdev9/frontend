@@ -4,7 +4,10 @@ import cn from 'classnames'
 import Message from './Message'
 import styles from './Messages.module.scss'
 
-function Messages() {
+function Messages(props) {
+
+  const items = props.items
+  
   return (
     <div className={ styles.wrapper }>
       {/* { disabled && (
@@ -22,17 +25,20 @@ function Messages() {
             <UI.Spinner active={ !disabled && isHistoryLoading } color="blue" size={ [30, 30] } strokeWidth="6"/>
           </div> */}
 
+{
+  items.map( item =>  <Message key={item} msg={item}/>)
+      
+// msg={ item }
+// eds={ activeClientIsEDS }
+// key={ `${item.id}_${item.type}` }
+// dispatch={ this.props.dispatch }
+// clientId={ this.props.activeClient.id }
+// onImageClick={ this.onImageClick }
+// onDocumentClick={ this.onDocumentClick }
+// onAssociateImgWithDoc={ this.handleAssociateImgWithDoc }
 
-          <Message
-                  // msg={ item }
-                  // eds={ activeClientIsEDS }
-                  // key={ `${item.id}_${item.type}` }
-                  // dispatch={ this.props.dispatch }
-                  // clientId={ this.props.activeClient.id }
-                  // onImageClick={ this.onImageClick }
-                  // onDocumentClick={ this.onDocumentClick }
-                  // onAssociateImgWithDoc={ this.handleAssociateImgWithDoc }
-                />
+}
+         
                 
                 {/* ) } */}
 
