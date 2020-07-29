@@ -19,9 +19,12 @@ function Chat(props) {
         url: 'http://localhost:3000/getTextMessages',
         data: { clientId }
       })
-       
+      
+      console.log()
 
-      setItems(result.data)
+      const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
+
+      setItems(resItems)
       // setData(result.data);
     };
 

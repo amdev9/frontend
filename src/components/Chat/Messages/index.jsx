@@ -26,7 +26,7 @@ function Messages(props) {
           </div> */}
 
 {
-  items.map( item =>  <Message key={item} msg={item}/>)
+  items.map( item =>  <Message key={item.id} msg={item.txt}/>)
       
 // msg={ item }
 // eds={ activeClientIsEDS }
