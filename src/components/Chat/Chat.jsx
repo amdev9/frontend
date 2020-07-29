@@ -3,11 +3,14 @@ import axios from 'axios'
 import cn from 'classnames'
 import Messages from './Messages'
 import Form from './Form'
+import { useInterval } from '../../helpers/useInterval'
+
 import styles from './Chat.module.scss'
 
 
 export const Context = React.createContext(null);
 
+const FETCH_DATA_INTERVAL = 10000
 
 function Chat(props) {
 
@@ -16,6 +19,17 @@ function Chat(props) {
   
 
   const [items, setItems] = useState([])
+  /*
+  useInterval(async () => {
+    const result = await axios({
+      method: 'POST',
+      url: 'http://localhost:3000/getTextMessages',
+      data: { clientId }
+    })
+    const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
+    setItems(resItems)
+  }, FETCH_DATA_INTERVAL)
+  */
 
   useEffect(() => {
 
@@ -25,8 +39,6 @@ function Chat(props) {
         url: 'http://localhost:3000/getTextMessages',
         data: { clientId }
       })
-      
-      console.log()
 
       const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
 
