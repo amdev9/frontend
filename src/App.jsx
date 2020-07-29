@@ -6,6 +6,7 @@ import NotFound from './components/NotFound'
 import Direct from './components/Direct'
 import Shepherd from './components/Shepherd'
 import Dashboard from './components/Dashboard'
+import Chat from './components/Chat'
 import PostComments from './components/Comments'
 
 import './App.scss';
