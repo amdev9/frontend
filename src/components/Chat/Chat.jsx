@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import cn from 'classnames'
 import Messages from './Messages'
+import Form from './Form'
 import styles from './Chat.module.scss'
- 
+
+
+export const Context = React.createContext(null);
+
 
 function Chat(props) {
 
   const clientId = props.match.params.clientId
+
+  
 
   const [items, setItems] = useState([])
 
@@ -42,6 +48,7 @@ function Chat(props) {
   }
 
   return (
+    <Context.Provider value={clientId}>
     <div className={ cns.root } >
       {/* <div className={ styles.adminPanel } >
         test
@@ -53,11 +60,12 @@ function Chat(props) {
         <Messages items={items}/>
       </div>
 
-      {/* <div className={ styles.chatForm } >
-       
-      </div> */}
+       <div className={ styles.chatForm } >
+        <Form />
+      </div> 
 
     </div>
+    </Context.Provider>
   )
 }
 

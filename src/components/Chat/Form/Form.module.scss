@@ -1,0 +1,125 @@
+@import 'assets/vars.scss';
+
+.container {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  border-top: 1px solid $gray;
+}
+
+.wrapper {
+  position: relative;
+  padding: 13px 20px 12px 20px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.attachmentSection {
+  width: 100%;
+
+  &.hidden {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .body {
+    padding: 8px 8px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-top: 1px $gray solid;
+  }
+}
+
+.btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: $icon-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &:hover svg {
+    color: $azure;
+  }
+}
+
+.counter {
+  color: $icon-gray;
+  padding: 4px;
+  margin-right: 4px;
+  cursor: default;
+
+  min-width: 40px;
+  text-align: center;
+
+  &.overflow {
+    color: $red;
+  }
+
+  &.template {
+    color: $pink;
+  }
+}
+
+.stickersBtn {
+  @extend .btn;
+
+  &.showEmojies svg {
+    color: $azure;
+  }
+}
+
+.sendBtn {
+  @extend .btn;
+  color: $azure;
+  margin-left: 12px;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.muteBtn {
+  @extend .btn;
+  margin-left: 12px;
+
+  &.muted {
+    color: $azure;
+  }
+}
+
+.fileLabel {
+  @extend .btn;
+  margin-right: 20px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.textInput {
+  width: 100%;
+  max-height: 100px;
+  resize: none;
+  margin-bottom: 2px;
+  line-height: 1.4;
+  font-size: 14px;
+  border: none;
+  padding: 0;
+}
+
+.arrow {
+  @extend .btn;
+  color: $azure;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
