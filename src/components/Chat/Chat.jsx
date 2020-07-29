@@ -15,11 +15,8 @@ const FETCH_DATA_INTERVAL = 10000
 function Chat(props) {
 
   const clientId = props.match.params.clientId
-
-  
-
   const [items, setItems] = useState([])
-  /*
+  
   useInterval(async () => {
     const result = await axios({
       method: 'POST',
@@ -29,7 +26,7 @@ function Chat(props) {
     const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
     setItems(resItems)
   }, FETCH_DATA_INTERVAL)
-  */
+  
 
   useEffect(() => {
 

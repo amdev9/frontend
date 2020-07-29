@@ -25,6 +25,7 @@ function Form() {
       data: { clientId, message }
     })
     console.log(res)
+    setMessage('')
   }
 
   return (
