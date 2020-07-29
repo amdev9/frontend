@@ -1,15 +1,17 @@
 
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import DmMessages from '../DmMessages'
 import SplashScreen from '../SplashScreen'
+import Chat from '../Chat'
 import Panel from '../Panel'
 
 function Direct() {
   const renderInbox = () => {
     return (
-      <SplashScreen />
+      <Chat />
+      // <SplashScreen />
     )
   }
 

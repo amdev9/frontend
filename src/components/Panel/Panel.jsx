@@ -1,5 +1,5 @@
-import React, { useState, useEffect, memo, useRef } from 'react';
-import memoize from 'memoize-one';
+import React, { useState, useEffect, memo } from 'react';
+// import memoize from 'memoize-one';
 import { FixedSizeList as List } from 'react-window';
 import axios from 'axios'
 import Row from './Row'

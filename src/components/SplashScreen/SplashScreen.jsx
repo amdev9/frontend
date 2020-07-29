@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
-
-import './SplashScreen.scss'
+import Chat from '../Chat'
+import styles from './SplashScreen.module.scss'
 
 
 function SplashScreen() {
 
   return (
-    // <div className="root">
-      <div className="center">
-        <div className="emoji">{ '🤓' }</div>
-        <div className="title">
+    <div className={styles.root}>
+      <div className={styles.center}>
+        <div className={styles.emoji}>{ '🤓' }</div>
+        <div className={styles.title}>
           { `Your Messages` }
         </div>
       </div>
-    // </div>
+    </div>
   )
 }
 

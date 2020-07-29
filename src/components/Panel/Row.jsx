@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { areEqual } from 'react-window'
 import { Link } from 'react-router-dom'
 
-import Userpic from './Userpic'
+// import Userpic from './Userpic'
 
 // If list items are expensive to render,
 // Consider using PureComponent to avoid unnecessary re-renders.
@@ -14,7 +14,7 @@ function Row(props) {
   const { data, index, style } = props
   const items = data;
   const item = items[index];
-  const src = require('./Untitled.png')
+  // const src = require('./Untitled.png')
  
   return (
     // onClick={() => toggleItemActive(index)} 
