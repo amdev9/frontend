@@ -1,0 +1,159 @@
+@import 'assets/vars.scss';
+
+.msg {
+  position: relative;
+  &.isTemporary {
+    opacity: 0.5;
+  }
+
+  & + .msg {
+    margin-top: 8px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &.isAdmin {
+    justify-content: flex-end;
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  max-width: 314px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &.isAdmin {
+    align-items: flex-end;
+  }
+}
+
+.date {
+  position: absolute;
+  bottom: 4px;
+  right: 14px;
+  color: $semi-black;
+  opacity: .4;
+  font-size: 11px;
+  text-align: center;
+  user-select: none;
+}
+
+.attachmentDate {
+  color: white;
+  background-color: rgba(0, 0, 0, .3);
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+  font-size: 11px;
+  text-align: center;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.title {
+  width: 100%;
+  color: $semi-black;
+  opacity: .3;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 4px;
+  text-align: right;
+}
+
+.avatar {
+  padding-top: 23px;
+}
+
+.avatarImg {
+  margin-left: 12px;
+  align-self: flex-end;
+  transition: transform 200ms;
+
+  &:hover {
+    transform: translate(0, -1px);
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,.25);
+  }
+}
+
+.attachments {
+  & + .body {
+    margin-top: 4px;
+  }
+
+  .date {
+    padding: 5px 10px;
+    border-radius: 5px;
+    bottom: 6px;
+    right: 8px;
+    background-color: rgba(0,0,0,.35);
+    color: white;
+    opacity: 1;
+  }
+}
+
+.msg.isOnlyEmoji {
+  .unread .bodyContent {
+    background-color: transparent;
+  }
+
+  .bodyContent {
+    background-color: transparent;
+    font-size: 36px;
+    padding: 0;
+    line-height: 1;
+  }
+}
+
+.body {
+  position: relative;
+  padding: 8px 14px 20px 14px;
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
+  min-width: 124px;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-line;
+
+  &.isAdmin {
+    background-color: $buble-gray;
+  }
+
+  &.isOnlyEmoji {
+    font-size: 30px;
+  }
+
+  &.unread {
+    background-color: #DCE1E2;
+  }
+}
+
+.separator {
+  position: relative;
+  min-width: 100%;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  opacity: .3;
+  font-size: 12px;
+  &:after {
+    content: '';
+    position: absolute;
+    border-top: 1px solid $semi-black;
+    top: 7px;
+    left: 0;
+    width: 100%;
+    opacity: .3;
+    z-index: -1;
+  }
+  span {
+    padding: 0 10px;
+    background: $chat-gray;
+  }
+}

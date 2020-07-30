@@ -6,10 +6,10 @@ import styles from './Form.module.scss'
 
 import { Context } from '../Chat'
 
+const MAX_CHAT_SYMBOLS = 281
+
 function Form() {
-
   const [message, setMessage] = useState('')
-
   const clientId = useContext(Context);
 
   const handleTextInputChange = (e) => {
@@ -53,17 +53,18 @@ function Form() {
             onChange={handleTextInputChange}
             // onResize={this.changeHeightHd}
           />
-          <button onClick={sendMessage}>Отправить сообщение</button>
+          <button  onClick={sendMessage}>Отправить сообщение</button>
+          {/* className={cns(styles.sendBtn)} */}
 
-          {/* {(chat.text.length > 0) && (
-            <div className={cn(
+          {(message > 0) && (
+            <div className={cns(
               styles.counter,
-              (chat.text.length > MAX_CHAT_SYMBOLS) && styles.overflow,
-              disableSending && styles.template,
+              (message.length > MAX_CHAT_SYMBOLS) && styles.overflow,
+              // disableSending && styles.template,
             )}>
-              {MAX_CHAT_SYMBOLS - chat.text.length}
+              {MAX_CHAT_SYMBOLS - message.length}
             </div>
-          )} */}
+          )}
 
           {/* <div title="Эмоджи и стикеры" className={cns.stickersBtn}>
             <UI.Icon

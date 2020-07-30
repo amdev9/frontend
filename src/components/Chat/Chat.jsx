@@ -16,17 +16,17 @@ function Chat(props) {
 
   const clientId = props.match.params.clientId
   const [items, setItems] = useState([])
-  
+
   useInterval(async () => {
     const result = await axios({
       method: 'POST',
       url: 'http://localhost:3000/getTextMessages',
       data: { clientId }
     })
-    const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
+    const resItems = result.data; // .map(item => ({ id: item.item_id, txt: item.text }))
     setItems(resItems)
   }, FETCH_DATA_INTERVAL)
-  
+
 
   useEffect(() => {
 
@@ -37,15 +37,12 @@ function Chat(props) {
         data: { clientId }
       })
 
-      const resItems = result.data.map(item => ({id: item.item_id, txt: item.text }))
+      const resItems = result.data; //.map(item => ({id: item.item_id, txt: item.text }))
 
       setItems(resItems)
-      // setData(result.data);
     };
 
     fetchData();
-
-    // await fetch('http://localhost:3000/sendText').then((result) => console.log(result.json()))
   }, [clientId])
 
 
@@ -58,22 +55,14 @@ function Chat(props) {
 
   return (
     <Context.Provider value={clientId}>
-    <div className={ cns.root } >
-      {/* <div className={ styles.adminPanel } >
-        test
-        
-      </div> */}
-
-      <div className={ styles.chatView }  style={{ height: chatViewHeight }}>
-        {/* */}
-        <Messages items={items}/>
+      <div className={cns.root} >
+        <div className={styles.chatView} style={{ height: chatViewHeight }}>
+          <Messages items={items} />
+        </div>
+        <div className={styles.chatForm} >
+          <Form />
+        </div>
       </div>
-
-       <div className={ styles.chatForm } >
-        <Form />
-      </div> 
-
-    </div>
     </Context.Provider>
   )
 }
