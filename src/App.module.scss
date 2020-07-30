@@ -84,7 +84,21 @@ table {
 }
 
 .app {
-  padding-top: 60px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   height: 100%;
+  width: 100%;
+  overflow: auto;
   display: flex;
+  flex-direction: column;
+}
+
+.appBody {
+  position: relative;
+  flex: 1 1;
+  flex-direction: row;
+  width: 100%;
 }

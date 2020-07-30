@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import cn from 'classnames'
 
 import Navigation from './components/Navigation'
 import NotFound from './components/NotFound'
@@ -14,9 +15,9 @@ import styles from './App.module.scss';
 function App() {
   
   return (
-    <div className={styles.container}>
+    <div className={cn(styles.container, styles.app)}>
       <Navigation />
-      <div className={styles.app}>
+      <div className={styles.appBody}>
         <Switch>
           <Route path="/" exact render={ () => <Redirect to="/direct"/> }/>
           <Route path="/direct" component={ Direct }/>

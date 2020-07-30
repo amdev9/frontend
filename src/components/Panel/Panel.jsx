@@ -2,6 +2,7 @@ import React, { useState, useEffect, memo } from 'react';
 // import memoize from 'memoize-one';
 import { FixedSizeList as List } from 'react-window';
 import axios from 'axios'
+import cn from 'classnames'
 import Row from './Row'
 import useWindowHeight from './useWindowHeight'
 import styles from './Panel.module.scss'
@@ -27,16 +28,20 @@ function Example({ height, items, width }) {
   // const itemData = createItemData(items);
 
   // console.log(itemData)
+
   return (
-    <List
-      height={height}
-      itemCount={items.length}
-      itemData={items}
-      itemSize={35}
-      width={width}
-    >
-      { Row }
-    </List>
+
+    <div className={cn(styles.listStapper, styles.row)}>
+      <List
+        height={height}
+        itemCount={items.length}
+        itemData={items}
+        itemSize={35}
+        width={width}
+      >
+        { Row }
+      </List>
+    </div>
   );
 }
 
@@ -65,7 +70,7 @@ function Panel(props) {
   }, [])
 
   return (
-    <div className={styles.panel}>
+    <div className={cn(styles['chat-list'], styles['col-3'])}>
       
       <Example
         height={widgetHeight - 60}
