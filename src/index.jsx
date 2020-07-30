@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import ErrorCatcher from './components/ErrorCatcher'
 import { Router } from 'react-router'
 import { createBrowserHistory } from 'history'
 
@@ -12,9 +12,9 @@ const history = createBrowserHistory()
 ReactDOM.render(
   <React.StrictMode>
     <ErrorCatcher>
-      <Router history={history}>
-        <App />
-      </Router>
+    <Router history={ history }>
+      <App />
+    </Router>
     </ErrorCatcher>
   </React.StrictMode>,
   document.getElementById('root')

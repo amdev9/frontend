@@ -9,15 +9,14 @@ import Dashboard from './components/Dashboard'
 // import Chat from './components/Chat'
 import PostComments from './components/Comments'
 
-import './App.scss';
+import styles from './App.module.scss';
 
 function App() {
   
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Navigation />
-      <div className="app">
-      
+      <div className={styles.app}>
         <Switch>
           <Route path="/" exact render={ () => <Redirect to="/direct"/> }/>
           <Route path="/direct" component={ Direct }/>

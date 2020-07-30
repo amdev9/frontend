@@ -4,7 +4,7 @@ import { FixedSizeList as List } from 'react-window';
 import axios from 'axios'
 import Row from './Row'
 import useWindowHeight from './useWindowHeight'
-import './Panel.scss'
+import styles from './Panel.module.scss'
 
 
 
@@ -65,7 +65,7 @@ function Panel(props) {
   }, [])
 
   return (
-    <div className="panel">
+    <div className={styles.panel}>
       
       <Example
         height={widgetHeight - 60}

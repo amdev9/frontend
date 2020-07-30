@@ -1,24 +1,24 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import './Navigation.scss'
+import styles from './Navigation.module.scss'
 
 
 function Navigation() {
   return (
-    <div className="root">
-      <div className="links">
+    <div className={styles.root}>
+      <div className={styles.links}>
         {/* default route - Профиль */}
-        <NavLink className="link" to="/direct">
+        <NavLink className={styles.link} to="/direct">
           <span>Директ</span>
         </NavLink>
-        <NavLink className="link" to="/comments">
+        <NavLink className={styles.link} to="/comments">
           <span>Комментарии</span>
         </NavLink>
-        <NavLink className="link" to="/shepherd">
+        <NavLink className={styles.link} to="/shepherd">
           <span>Пастух</span>
         </NavLink>
-        <NavLink className="link" to="/dashboard">
+        <NavLink className={styles.link} to="/dashboard">
           <span>Дашборд</span>
         </NavLink>
       </div>

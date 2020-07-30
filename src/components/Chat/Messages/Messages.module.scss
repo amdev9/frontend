@@ -1,4 +1,4 @@
-@import 'assets/vars.scss';
+@import '../../../assets/vars.scss';
 
 @keyframes show {
   0% {
@@ -82,7 +82,7 @@
   align-items: center; 
   justify-content: center; 
  
-  font-family: 'SF'; 
+  // font-family: 'SF'; 
   font-size: 18px; 
   text-transform: uppercase; 
   font-weight: 300; 

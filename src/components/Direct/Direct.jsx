@@ -10,23 +10,19 @@ import Panel from '../Panel'
 function Direct() {
   const renderInbox = () => {
     return (
-      
       <SplashScreen />
     )
   }
 
   return (
-    <>
+    <React.Fragment>
       <Panel />
-
-      
-        <Switch>
-          {/* <Route path="/direct" exact render={ () => <Redirect to="/direct/inbox"/> }/> */}
-          <Route path="/direct/t/:clientId" component={Chat} />
-          <Route path="/direct" render={renderInbox} />
-        </Switch>
-
-    </>
+      <Switch>
+        {/* <Route path="/direct" exact render={ () => <Redirect to="/direct/inbox"/> }/> */}
+        <Route path="/direct/t/:clientId" component={Chat} />
+        <Route path="/direct" render={renderInbox} />
+      </Switch>
+    </React.Fragment>
   )
 }
 
