@@ -1,8 +1,12 @@
-// @import '~assets/stylesheets/vars.scss';
+@import '../../assets/vars.scss';
 
-.root {
-  flex: auto;
+
+.dashboard {
+  position: relative;
+  flex: 0 1 100%;
+  flex-direction: column;
 }
+
 
 .splashScreen {
   display: flex;
@@ -16,7 +20,7 @@
   width: 100%;
   height: calc(100% - 120px);
 
-  // background-color: $chat-gray;
+  background-color: $chat-gray;
 }
 
 .center {

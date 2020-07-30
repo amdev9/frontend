@@ -10,7 +10,7 @@ import styles from './Chat.module.scss'
 
 export const Context = React.createContext(null);
 
-const FETCH_DATA_INTERVAL = 10000
+const FETCH_DATA_INTERVAL = 60000
 
 function Chat(props) {
 
