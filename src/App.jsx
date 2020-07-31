@@ -15,19 +15,16 @@ import styles from './App.module.scss';
 function App() {
   
   return (
-    <div className={cn(styles.container, styles.app)}>
-      <Navigation />
-      <div className={styles.appBody}>
-        <Switch>
-          <Route path="/" exact render={ () => <Redirect to="/direct"/> }/>
-          <Route path="/direct" component={ Direct }/>
-          <Route path="/comments" component={ PostComments }/>
-          <Route path="/shepherd" component={ Shepherd }/>
-          <Route path="/dashboard" component={ Dashboard }/>
-          <Route path="*" component={ NotFound }/>
-
-        </Switch>
-      </div>
+    <div>
+    <Navigation />
+    <Switch>
+      <Route path="/" exact render={ () => <Redirect to="/direct"/> }/>
+      <Route path="/direct" component={ Direct }/>
+      <Route path="/comments" component={ PostComments }/>
+      <Route path="/shepherd" component={ Shepherd }/>
+      <Route path="/dashboard" component={ Dashboard }/>
+      <Route path="*" component={ NotFound }/>
+    </Switch>
     </div>
   )
 }

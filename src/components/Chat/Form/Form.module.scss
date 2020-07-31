@@ -1,11 +1,10 @@
 @import '../../../assets/vars.scss';
 
 .container {
-  width: 100%;
+  // width: 100%;
 }
 
 .form {
-  width: 100%;
   border-top: 1px solid $gray;
 }
 
@@ -43,6 +42,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
   &:hover svg {
     color: $azure;
   }

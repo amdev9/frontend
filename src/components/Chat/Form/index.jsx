@@ -29,70 +29,42 @@ function Form() {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={cns.attachment}>
-        {/* <div className={styles.body}>
-          {attachments.map((attachment) => this.renderAttachment(attachment))}
-        </div> */}
-      </div>
 
-      <form className={styles.form}>
-        <div className={styles.wrapper}>
-           
-          <TextareaAutosize
-            autoFocus
-            // ref={this.textarea}
-            id="chatTextArea"
-            rows={1}
-            maxRows={15}
-            className={styles.textInput}
-            placeholder="Напишите сообщение…"
-            value={message}
-            // onKeyDown={this.handleKeyDown}
-            // onBlur={this.handleCaretPosition}
-            onChange={handleTextInputChange}
-            // onResize={this.changeHeightHd}
-          />
-          <button  onClick={sendMessage}>Отправить сообщение</button>
-          {/* className={cns(styles.sendBtn)} */}
 
-          {(message > 0) && (
-            <div className={cns(
-              styles.counter,
-              (message.length > MAX_CHAT_SYMBOLS) && styles.overflow,
-              // disableSending && styles.template,
-            )}>
-              {MAX_CHAT_SYMBOLS - message.length}
-            </div>
-          )}
 
-          {/* <div title="Эмоджи и стикеры" className={cns.stickersBtn}>
-            <UI.Icon
-              name="stickers"
-              size={[20, 20]}
-              data-for="EmojiesPopup"
-              onClick={this.handleChangeEmojiesVisibility}
-            />
+    <form className={styles.form}>
+      <div className={styles.wrapper}>
 
-            <Emojies id="EmojiesPopup" top center isVisible={showEmojies} onChangeVisibility={this.changeEmojiesVisibility} />
+        <TextareaAutosize
+          autoFocus
+          // ref={this.textarea}
+          id="chatTextArea"
+          rows={1}
+          maxRows={15}
+          className={styles.textInput}
+          placeholder="Напишите сообщение…"
+          value={message}
+          // onKeyDown={this.handleKeyDown}
+          // onBlur={this.handleCaretPosition}
+          onChange={handleTextInputChange}
+        // onResize={this.changeHeightHd}
+        />
+        <button onClick={sendMessage}>Отправить сообщение</button>
+        {/* className={cns(styles.sendBtn)} */}
+
+        {(message > 0) && (
+          <div className={cns(
+            styles.counter,
+            (message.length > MAX_CHAT_SYMBOLS) && styles.overflow,
+            // disableSending && styles.template,
+          )}>
+            {MAX_CHAT_SYMBOLS - message.length}
           </div>
+        )}
 
-          {(!!chat.text && !disableSending) || attachments.length
-            ? (
-              <div
-                title="Жми, чтобы отправить сообшение"
-                className={cn(styles.sendBtn, sendingMessage && styles.disabled)}
-              >
-                <UI.Icon name="triangle" onClick={!sendingMessage ? this.handleSubmit : undefined} size={[20, 20]} />
-              </div>
-            ) : (
-              hasEkatTrait && (<div title="Жми, для передачи клиента" className={cns.muteBtn} onClick={this.transferClientHd}>
-                <UI.Icon name="skip_next" size={[20, 20]} className={styles.arrow} />
-              </div>)
-            )} */}
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+
   )
 }
 

@@ -3,6 +3,8 @@ import axios from 'axios'
 import cn from 'classnames'
 import Messages from './Messages'
 import Form from './Form'
+import Header from './Header'
+import ClientDashboard from '../ClientDashboard'
 import { useInterval } from '../../helpers/useInterval'
 
 import styles from './Chat.module.scss'
@@ -47,15 +49,14 @@ function Chat(props) {
 
 
   const chatViewHeight = 400
-  const cns = {
-    root: cn(
-      styles.container,
-    ),
-  }
-
+ 
   return (
     <Context.Provider value={clientId}>
-      <div className={cns.root} >
+      <div className={styles.container} >
+        <div className={ styles.adminPanel }>
+          <Header />
+        </div>
+
         <div className={styles.chatView} style={{ height: chatViewHeight }}>
           <Messages items={items} />
         </div>
@@ -63,6 +64,7 @@ function Chat(props) {
           <Form />
         </div>
       </div>
+      <ClientDashboard />
     </Context.Provider>
   )
 }

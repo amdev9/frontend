@@ -22,38 +22,14 @@ function Row(props) {
 
   return (
 
-    <Link className={cns.client} to={`/direct/t/${item.thread_id}`} >
-      {/* title={title} onClick={() => this.activateClientHd(client.id)} */}
-      <div className={styles.avatar}>
-        {/* {hasActiveCall &&
-          <div className={styles.overlay}>
-            <UI.Icon name="callcentre" className={styles.icon} size={[20, 20]} />
-          </div>} */}
-
-          <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
-
-        {/* {!!unreadMessages && <div className={styles.unreadMessages}>{unreadMessages}</div>}
-
-        {playedCallBelongsToClient && (
-          <div className={cn(styles.audioPlaybackControls, styles.playing)}>
-            <CallPlayback />
-          </div>
-        )} */}
+    <Link to={`/direct/t/${item.thread_id}`} >
+   
+      <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
+      
+      <div className={styles.name}>
+        {user.username}
       </div>
-
-      <div className={styles.content}>
-        <div className={styles.name}>
-          {user.username}
-        </div>
-
-        {/* <div className={styles.text}>
-          {this.renderMsg(smallMode, typing, lastMessage)}
-        </div>
-
-        <div className={styles.time}>
-          {lastMessage && !smallMode && this.renderTime(lastMessage.created_at)}
-        </div> */}
-      </div>
+    
     </Link>
   );
 };

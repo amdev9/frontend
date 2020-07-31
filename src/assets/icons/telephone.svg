@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="14px" viewBox="0 0 10 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Правый-блок" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Навигация" transform="translate(-445.000000, -110.000000)" fill="#BDC1C3">
+            <g id="Group-6" transform="translate(320.000000, 50.000000)">
+                <path d="M126,60 L134,60 C134.552285,60 135,60.4477153 135,61 L135,73 C135,73.5522847 134.552285,74 134,74 L126,74 C125.447715,74 125,73.5522847 125,73 L125,61 C125,60.4477153 125.447715,60 126,60 Z M126,62 L126,71 L134,71 L134,62 L126,62 Z M129.5,72 C129.223858,72 129,72.2238576 129,72.5 C129,72.7761424 129.223858,73 129.5,73 L130.5,73 C130.776142,73 131,72.7761424 131,72.5 C131,72.2238576 130.776142,72 130.5,72 L129.5,72 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,69 @@
+@import '../../../assets/vars.scss';
+
+.root {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  background-color: $widget-header;
+
+  & > .titleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-right: 15px;
+
+    & > *:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    & > .title {
+      font-size: 15px;
+      line-height: 18px;
+      color: $bluish-gray;
+    }
+  }
+}
+
+.iconWrapper {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  background-color: $pale-gray;
+
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .2s ease-in-out;
+
+  &.disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  & > .icon {
+    color: $bluish-gray;
+    transition: all .2s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $bluish-gray;
+
+    & > .icon {
+      color: $pale-gray;
+    }
+  }
+}

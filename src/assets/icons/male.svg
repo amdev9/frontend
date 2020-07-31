@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>male</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Правый-блок" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Недоделанные-дела" transform="translate(-42.000000, -697.000000)" fill-rule="nonzero" fill="#22A5F6">
+            <g id="male" transform="translate(42.000000, 697.000000)">
+                <path d="M9,20 C13.418278,20 17,16.418278 17,12 C17,7.581722 13.418278,4 9,4 C4.581722,4 1,7.581722 1,12 C1,16.418278 4.581722,20 9,20 Z M9,21 C4.02943725,21 0,16.9705627 0,12 C0,7.02943725 4.02943725,3 9,3 C13.9705627,3 18,7.02943725 18,12 C18,16.9705627 13.9705627,21 9,21 Z" id="Oval-2"></path>
+                <polygon id="Path-5" points="15.3535534 6.35355339 20.8535534 0.853553391 20.1464466 0.146446609 14.6464466 5.64644661"></polygon>
+                <polygon id="Path-6" points="20 5 21 5 21 0 16 0 16 1 20 1"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

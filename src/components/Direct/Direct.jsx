@@ -6,6 +6,7 @@ import DmMessages from '../DmMessages'
 import SplashScreen from '../SplashScreen'
 import Chat from '../Chat'
 import Panel from '../Panel'
+import styles from './Direct.module.scss'
 
 function Direct() {
   const renderInbox = () => {
@@ -15,14 +16,13 @@ function Direct() {
   }
 
   return (
-    <React.Fragment>
+    <div className={styles.app}>
       <Panel />
       <Switch>
-        {/* <Route path="/direct" exact render={ () => <Redirect to="/direct/inbox"/> }/> */}
         <Route path="/direct/t/:clientId" component={Chat} />
         <Route path="/direct" render={renderInbox} />
       </Switch>
-    </React.Fragment>
+    </div>
   )
 }
 
