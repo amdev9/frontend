@@ -8,7 +8,7 @@ import Direct from './components/Direct'
 import Shepherd from './components/Shepherd'
 import Dashboard from './components/Dashboard'
 // import Chat from './components/Chat'
-import PostComments from './components/Comments'
+import Home from './components/Home'
 
 import styles from './App.module.scss';
 
@@ -20,7 +20,7 @@ function App() {
     <Switch>
       <Route path="/" exact render={ () => <Redirect to="/direct"/> }/>
       <Route path="/direct" component={ Direct }/>
-      <Route path="/comments" component={ PostComments }/>
+      <Route path="/comments" component={ Home }/>
       <Route path="/shepherd" component={ Shepherd }/>
       <Route path="/dashboard" component={ Dashboard }/>
       <Route path="*" component={ NotFound }/>

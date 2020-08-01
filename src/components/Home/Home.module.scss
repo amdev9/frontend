@@ -1,0 +1,245 @@
+@import '../../assets/vars.scss';
+
+.root {
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  padding: 30px;
+  padding-bottom: 200px;
+}
+
+.head {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 50px 0 30px;
+
+  span {
+    font-size: 20px;
+    color: $semi-black;
+    padding-bottom: 12px;
+  }
+
+  i {
+    font-size: 16px;
+    color: $icon-gray;
+  }
+}
+
+.signout {
+  color: $semi-black;
+  cursor: pointer;
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.main {
+  width: 60%;
+  padding-right: 24px;
+  border-right: 1px $gray solid;
+}
+
+.table {
+  margin-top: 20px;
+
+  .name {
+    display: flex;
+    align-items: center;
+
+    span {
+      padding-left: 10px;
+    }
+  }  
+}
+
+.rating {
+  display: grid;
+  grid-template-areas: "title" "rates";
+  grid-template-rows: minmax(34px, max-content);
+  cursor: default;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: $widget-header;
+  margin-bottom: 40px;
+  width: 350px;
+
+  .title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: title;
+    color: $semi-black;
+    background-color: rgba($text-gray, .6);
+  }
+}
+
+.rates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  grid-area: rates;
+}
+
+.rate {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  .emoji {
+    width: 36px;
+    height: 36px;
+  }
+
+  & + .rate {
+    margin-left: 20px;
+  }
+
+  &.active {
+    background-color: white;
+  }
+}
+
+.traits, .mates {
+  margin-left: 10px;
+  line-height: 1.43;
+  color: $bluish-gray;
+  margin-bottom: 40px;
+
+  li {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+}
+
+.captain {
+  display: flex;
+  width: 350px;
+
+  button {
+    margin-left: 20px;
+  }
+}
+
+.side {
+  width: 40%;
+  padding-left: 40px;
+
+  .qr {
+    img {
+      margin: 10px auto;
+    }
+
+    button {
+      width: 100px;
+      margin-top: 20px;
+    }
+  }
+
+  .ratings {
+    margin-bottom: 80px;
+
+    .ratingsContent {
+      position: relative;
+
+      .table {
+
+        .item {
+          td {
+            padding: 0px 12px;
+          }
+
+          .rateTd {
+            padding: 0px 0px;
+            width: 40px;
+
+            .rate {
+              height: 28px;
+
+              min-width: 28px;
+              width: 28px;
+              max-width: 28px;
+
+              margin: auto;
+
+              .emoji {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+
+          .dateTd {
+            min-width: 120px;
+            width: 120px;
+            max-width: 120px;
+          }
+        }
+      }
+    }
+
+    .paginationContainer {
+      margin-top: 20px;
+    }
+  }
+}
+
+.payRate {
+  position: relative;
+  color: $bluish-gray;
+  margin-bottom: 40px;
+  min-height: 20px;
+  display: inline-block;
+
+  li {
+    list-style-type: disc;
+    list-style-position: inside;
+  }  
+}
+
+.teamLeaderboard {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  .from {
+    margin-right: 20px;
+  }
+
+  .from, .to {
+    display: inline-block;
+
+    .dateInput {
+      display: inline-block;
+    }
+  }
+
+  .tableContainer {
+    position: relative;
+
+    .empty {
+    }
+  }
+}
+

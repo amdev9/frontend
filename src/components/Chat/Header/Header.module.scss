@@ -32,9 +32,20 @@
 .top {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  // align-items: center;
   justify-content: space-between;
 }
+
+.flexRow {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  // align-items: center;
+  justify-content: space-between;
+}
+
 
 .clientName {
   padding-right: 8px;
@@ -143,6 +154,7 @@
 
 .status {
   font-size: 12px;
+  
   color: $text-gray;
 }
 
@@ -155,7 +167,7 @@
 .bottom {
   padding: 8px 16px;
 
-  margin: 0 -16px;
+  // margin: 0 -16px;
   margin-top: 8px;
 
   background-color: white;
@@ -166,9 +178,25 @@
   margin-top: 4px;
 }
 
+// .task {
+  
+//   color: #e84343;
+//   font-weight: 500;
+//   // margin: 0 -16px;
+// }
+
 .task {
-  margin: 0 -16px;
+  margin: 15px;
+  color: $red;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    color: rgba($red, 0.6);
+  }
 }
+
+
 
 .chatMembers {
   ul {

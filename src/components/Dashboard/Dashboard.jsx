@@ -1,10 +1,11 @@
 
 import React from 'react'
 
+import Profile from '../ClientDashboard/Profile'
 function Dashboard() {
   return (
     <div>
-      <p>Dashboard</p>
+      <Profile />
     </div>
   )
 }
