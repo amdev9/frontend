@@ -1,10 +1,17 @@
 @import '../../../assets/vars.scss';
 
 .client {
+  list-style: none;
+  border-bottom: 1px #EFEFEF solid;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 100%;
   display: flex;
+  flex-direction: row;
+
   padding: 14px 20px;
   text-decoration: none;
-  
+
 
   &:before {
     content: '';
@@ -53,17 +60,6 @@
     }
   }
 
-  &.vox {
-    background-color: rgba($orange, .1);
-
-    .avatar {
-      background-color: rgba($orange, .3);
-    }
-
-    .overlay {
-      background-color: rgba($orange, .8);
-    }
-  }
 
   &:not(.active) {
     &.unresolved {
@@ -115,9 +111,51 @@
   }
 }
 
+.unreadMessages {
+  position: absolute;
+  // z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $orange;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unresolved {
+  background-color: rgba($red, .1);
+}
+
+
+///////////////// new styles
+
+.thumb {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+// .listItem {
+//   list-style: none;
+//   border-bottom: 1px #EFEFEF solid;
+//   vertical-align: middle;
+//   cursor: pointer;
+//   width: 100%;
+//   display: flex;
+//   // flex-direction: row;
+
+//   padding: 14px 20px;
+//   text-decoration: none;
+// }
+
 .content {
   width: 100%;
-  padding-left: 8px;
+  padding-left: 10px;
   width: calc(100% - 50px);
   display: flex;
   flex-direction: column;
@@ -143,24 +181,4 @@
   white-space: nowrap;
   overflow: hidden;
   display: block;
-}
-
-.unreadMessages {
-  position: absolute;
-  // z-index: 1;
-  right: -2px;
-  bottom: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: $orange;
-  color: white;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.unresolved {
-  background-color: rgba($red, .1);
 }

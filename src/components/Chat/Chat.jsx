@@ -12,7 +12,7 @@ import styles from './Chat.module.scss'
 
 export const Context = React.createContext(null);
 
-const FETCH_DATA_INTERVAL = 60000
+const FETCH_DATA_INTERVAL = 160000
 
 function Chat(props) {
 
