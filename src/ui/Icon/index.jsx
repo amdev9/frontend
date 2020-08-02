@@ -20,17 +20,22 @@ class Icon extends React.PureComponent {
 
     let cns = cn(`${styles.icon}`, className)
 
-    let style = size
-      ? { width: size[0], height: size[1], lineHeight: size[1] }
-      : {}
+    // let style = size
+    //   ? { width: size[0], height: size[1], lineHeight: size[1] }
+    //   : {}
 
-    const { id } = require(`../../assets/icons/${name}.svg`).default
+    // const { id } = require(`../../assets/icons/${name}.svg`).default
+
+    const svgLogo = require(`../../assets/icons/${name}.svg`)
 
     return (
-      <span { ...rest } className={ cns } style={ style }>
-        <svg className={ styles.svg }>
+      <span { ...rest } className={ cns } >
+        {/* style={ style } */}
+         <img src={svgLogo} />
+
+        {/* <svg className={ styles.svg }>
           <use xlinkHref={ `#${id}` }/>
-        </svg>
+        </svg> */}
       </span>
     )
   }

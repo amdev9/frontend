@@ -33,14 +33,23 @@ function Home() {
           onClick={logout}
         /> */}
 
-        <button
+        {/* <button
           name="exit"
           // size={[40, 40]}
           className={styles.signout}
           value=""
           onClick={logout}
         >Выпилиться из админки
-        </button>
+        </button> */}
+
+        <Icon
+            name="exit"
+            size={ [40, 40] }
+            className={ styles.signout }
+            title="Выпилиться из админки"
+            onClick={ logout }
+          />
+
       </div>
     </div>
   )
