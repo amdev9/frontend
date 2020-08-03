@@ -33,6 +33,10 @@ class Icon extends React.PureComponent {
         {/* style={ style } */}
          <img src={svgLogo} />
 
+         {/* https://github.com/parcel-bundler/parcel/issues/2246 */}
+
+
+         
         {/* <svg className={ styles.svg }>
           <use xlinkHref={ `#${id}` }/>
         </svg> */}
