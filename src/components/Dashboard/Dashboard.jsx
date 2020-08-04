@@ -11,7 +11,7 @@ function Dashboard() {
 
     const fetchData = async () => {
       // const result = await axios(
-      //   'http://localhost:3000/getComments',
+      //   'http://localhost:3001/getComments',
       // );
 
 
@@ -30,7 +30,7 @@ function Dashboard() {
 
     fetchData();
 
-    // await fetch('http://localhost:3000/sendText').then((result) => console.log(result.json()))
+    // await fetch('http://localhost:3001/sendText').then((result) => console.log(result.json()))
   }, [])
 
 

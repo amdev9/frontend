@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
 import ErrorCatcher from './components/ErrorCatcher'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
@@ -9,9 +10,11 @@ import { BrowserRouter } from 'react-router-dom'
 ReactDOM.render(
   <React.StrictMode>
     <ErrorCatcher>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+  
     </ErrorCatcher>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,9 +1,11 @@
 
 import React from 'react'
 import Icon from '../../ui/Icon'
+import { useAuth } from '../../context/auth'
 import styles from './Home.module.scss'
 
 function Home() {
+  const { setAuthTokens } = useAuth();
 
   const admin = {
     name: 'Logged_in_username',
@@ -11,7 +13,7 @@ function Home() {
   }
 
   function logout() {
-    console.log('logout handler')
+    setAuthTokens();
   }
 
   // throw new Error('I crashed!');
