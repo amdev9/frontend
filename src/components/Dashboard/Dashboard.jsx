@@ -10,16 +10,16 @@ function Dashboard() {
   useEffect(() => {
 
     const fetchData = async () => {
-      // const result = await axios(
-      //   'http://localhost:3001/getComments',
-      // );
+      const result = await axios(
+        'http://localhost:3001/getComments',
+      );
 
 
-      const result = await axios({
-        method: 'POST',
-        url: 'http://localhost:3000/sendComment',
-        // data: { clientId }
-      })
+      // const result = await axios({
+      //   method: 'POST',
+      //   url: 'http://localhost:3000/sendComment',
+      //   // data: { clientId }
+      // })
 
       console.log(result.data)
       

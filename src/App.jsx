@@ -15,10 +15,13 @@ import styles from './App.module.scss';
 
 function App() {
 
-  const [authTokens, setAuthTokens] = useState(localStorage.getItem('authTokens') || '');
+  const tokens = localStorage.getItem('tokens')
+  
+
+  const [authTokens, setAuthTokens] = useState(tokens || '');
 
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
+    localStorage.setItem('tokens', JSON.stringify(data) || '');
     setAuthTokens(data);
   }
 
