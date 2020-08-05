@@ -1,13 +1,33 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import axios from 'axios'
+
+import SplashScreen from '../SplashScreen'
+import CommentsView from '../CommentsInbox'
+import Panel from '../Panel'
+import RowComment from '../RowComment'
+import styles from './Comments.module.scss'
 
 function Comments() {
-  // throw new Error('I crashed!');
+
+  const renderInbox = () => {
+    return (
+      <SplashScreen />
+    )
+  }
+
   return (
-    <div>
-      <p>Comments</p>
+    <div className={styles.app}>
+      {/* <Panel panelUrl="http://localhost:3000/getComments" itemComponent={RowComment}/>  */}
+      {/* pass hook as param, comments row as component */}
+      <Switch>
+        <Route path="/comments/t/:clientId" component={CommentsView} />
+        <Route path="/comments" render={renderInbox} />
+      </Switch>
     </div>
   )
+
 }
 
 export default Comments

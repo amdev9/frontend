@@ -9,60 +9,48 @@ import styles from './Row.module.scss'
 // Consider using PureComponent to avoid unnecessary re-renders.
 // https://reactjs.org/docs/react-api.html#reactpurecomponent
 
-function Row(props) {
-
-
-  
-
-
-  console.log(props)
+function RowComment(props) {
   // Data passed to List as "itemData" is available as props.data
   const { data, index, style } = props
   const { items, activeIndex, setActiveIndex } = data;
   const item = items[index];
 
   console.log('item -', item)
-  const [user] = item.users
+  // const [user] = item.users
   // const src = require('./Untitled.png')
-
-
   const cns = {
     client: cn(
       styles.client,
      
-      activeIndex === index && styles.active,
+      // activeIndex === index && styles.active,
       // hasActiveCall && styles.vox,
       // hasUnresolved && styles.unresolved,
       // smallMode && styles.smallMode
     ),
   }
 
-
   return (
+    <></>
+    // <Link className={cns.client} to={`/comment/t/${item.thread_id}`} onClick={ () => setActiveIndex(index) }>
+    //   <div>
+    //     <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
+    //   </div>
+    //   <div className={styles.content}>
+    //     <div className={styles.name}>
+    //       {user.username}
+    //     </div>
 
-    <Link className={cns.client} to={`/direct/t/${item.thread_id}`} onClick={ () => setActiveIndex(index) }>
+    //     <div className={styles.text}>
+    //       Здравствуйте, Мария as da sd asd as dasd 
+    //   </div>
 
-      <div>
-        <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.name}>
-          {user.username}
-        </div>
-
-        <div className={styles.text}>
-          Здравствуйте, Мария as da sd asd as dasd 
-      </div>
-
-        <div className={styles.time}>
-          66 д. назад
-        {/* { lastMessage && !smallMode && this.renderTime(lastMessage.created_at) } */}
-        </div>
-      </div>
-
-
-    </Link>
+    //     <div className={styles.time}>
+    //       66 д. назад
+    //     {/* { lastMessage && !smallMode && this.renderTime(lastMessage.created_at) } */}
+    //     </div>
+    //   </div>
+    // </Link>
   );
 };
 
-export default memo(Row, areEqual)
+export default memo(RowComment, areEqual)

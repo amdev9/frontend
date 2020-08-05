@@ -1,0 +1,244 @@
+@import '../../../assets/vars.scss';
+
+.root {
+  width: 100%;
+  position: relative;
+  min-width: 380px;
+  box-shadow: 0 12px 20px -6px rgba(0,0,0,0.06);
+  z-index: 1000;
+  padding: 0 16px;
+}
+
+.panel {
+  position: relative;
+  padding-top: 8px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 0;
+    width: 6px;
+    height: 88px;
+    border-radius: 6px;
+  }
+
+  &.brown:before {
+    background-color: $brown;
+    box-shadow: 4px 0 48px 0 rgba($brown, .12);
+  }
+}
+
+.top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+}
+
+.flexRow {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  // align-items: center;
+  justify-content: space-between;
+}
+
+
+.clientName {
+  padding-right: 8px;
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.deviceIcon {
+  margin-right: 4px;
+  margin-bottom: 2px;
+
+  & + .deviceIcon {
+    margin-left: 6px;
+  }
+}
+
+.ctrls {
+  display: flex;
+  align-items: center;
+
+  .callIcon {
+    color: $green;
+
+    &.active {
+      color: $red;
+    }
+
+    &.disable {
+      pointer-events: none;
+      opacity: .5;
+    }
+  }
+
+  .tasksIcon {
+    position: relative;
+    color: $orange;
+    margin-left: 10px;
+
+    &.disable {
+      pointer-events: none;
+      opacity: .5;
+    }
+
+    .hasTasksBadge {
+      position: absolute;
+      right: -4px;
+      top: -4px;
+      z-index: 1;
+
+      width: 15px;
+      height: 15px;
+      border: 3px solid white;
+      border-radius: 50%;
+      background-color: $red;
+    }
+  }
+}
+
+.disabilities {
+  font-size: 12px;  
+  margin-top: 6px;
+  color: $red;
+}
+
+.device {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 6px;
+  color: $text-gray;
+  font-size: 12px;  
+}
+
+.clientSpecialStatus {
+  margin-top: 6px;
+  font-size: 12px;
+  color: $pink;
+}
+
+.clientEDSStatus {
+  margin-top: 6px;
+  font-size: 12px;  
+
+  .caption {
+    color: $text-gray;
+  }
+
+  .status {
+    color: $azure;
+
+    &.anon {
+      color: $red;
+    }
+
+    &.simple {
+      color: darken($orange, 10%);
+    }
+
+    &.full {
+      color: darken($green, 5%);
+    }
+  }
+}
+
+.status {
+  font-size: 12px;
+  
+  color: $text-gray;
+}
+
+.blockedCaption {
+  margin-left: 8px;
+  color: $red;
+  font-size: 12px;
+}
+
+.bottom {
+  padding: 8px 16px;
+
+  // margin: 0 -16px;
+  margin-top: 8px;
+
+  background-color: white;
+  border-top: 1px solid $gray;
+}
+
+.tasks {
+  margin-top: 4px;
+}
+
+// .task {
+  
+//   color: #e84343;
+//   font-weight: 500;
+//   // margin: 0 -16px;
+// }
+
+.task {
+  margin: 15px;
+  color: $red;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    color: rgba($red, 0.6);
+  }
+}
+
+
+
+.chatMembers {
+  ul {
+    display: flex;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $azure;
+      margin-left: 9px;
+      font-size: 12px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    & + li {
+      margin-left: 12px;
+    }
+  }
+}
+
+.member {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  color: white;
+}

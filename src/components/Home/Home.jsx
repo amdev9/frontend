@@ -21,36 +21,18 @@ function Home() {
     <div className={styles.root}>
       <div className={styles.head}>
         {/* <UI.Userpic url={admin.avatar_url} code={admin.avatar_code} size={100} /> */}
-
         <div className={styles.info}>
           <span>{admin.name}</span>
           <i>{admin.email}</i>
         </div>
 
-        {/* <Icon
+        <Icon
           name="exit"
           size={[40, 40]}
           className={styles.signout}
           title="Выпилиться из админки"
           onClick={logout}
-        /> */}
-
-        {/* <button
-          name="exit"
-          // size={[40, 40]}
-          className={styles.signout}
-          value=""
-          onClick={logout}
-        >Выпилиться из админки
-        </button> */}
-
-        <Icon
-            name="exit"
-            size={ [40, 40] }
-            className={ styles.signout }
-            title="Выпилиться из админки"
-            onClick={ logout }
-          />
+        />
 
       </div>
     </div>

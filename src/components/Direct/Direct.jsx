@@ -2,7 +2,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 
-import DmMessages from '../DmMessages'
+import Row from '../Row'
 import SplashScreen from '../SplashScreen'
 import Chat from '../Chat'
 import Panel from '../Panel'
@@ -17,7 +17,7 @@ function Direct() {
 
   return (
     <div className={styles.app}>
-      <Panel />
+      <Panel panelUrl="http://localhost:3000/getThreads" itemsComponent={Row} />
       <Switch>
         <Route path="/direct/t/:clientId" component={Chat} />
         <Route path="/direct" render={renderInbox} />

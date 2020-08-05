@@ -1,0 +1,184 @@
+@import '../../assets/vars.scss';
+
+.client {
+  list-style: none;
+  border-bottom: 1px #EFEFEF solid;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  padding: 14px 20px;
+  text-decoration: none;
+
+
+  &:before {
+    content: '';
+    width: 75%;
+    height: 1px;
+    background-color: rgba($gray, .5);
+    // position: absolute;
+    bottom: -1px;
+    right: 0;
+  }
+
+  &:last-child:before {
+    background-color: transparent;
+  }
+
+  &.smallMode {
+    justify-content: center;
+
+    .content {
+      padding: 0;
+      width: 0;
+    }
+  }
+
+  &.active {
+    background-color: $gray;
+
+    &:before {
+      background-color: transparent;
+    }
+  }
+
+  &:not(.unresolved) {
+    &:hover {
+      background-color: rgba($gray, .5);
+
+      &:before {
+        background-color: transparent;
+      }
+    }
+
+    &.active {
+      &:hover {
+        background-color: $gray;
+      }
+    }
+  }
+
+
+  &:not(.active) {
+    &.unresolved {
+      &:hover {
+        background-color: rgba($red, .15);
+      }
+    }
+  }
+}
+
+.avatar, .avatar img, .overlay {
+  border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+
+  min-width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .audioPlaybackControls {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    min-height: 50px;
+    min-width: 50px;
+    height: 50px;
+    width: 50px;
+
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}
+
+.unreadMessages {
+  position: absolute;
+  // z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $orange;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unresolved {
+  background-color: rgba($red, .1);
+}
+
+
+///////////////// new styles
+
+.thumb {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+// .listItem {
+//   list-style: none;
+//   border-bottom: 1px #EFEFEF solid;
+//   vertical-align: middle;
+//   cursor: pointer;
+//   width: 100%;
+//   display: flex;
+//   // flex-direction: row;
+
+//   padding: 14px 20px;
+//   text-decoration: none;
+// }
+
+.content {
+  width: 100%;
+  padding-left: 10px;
+  width: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.time {
+  color: $icon-gray;
+  font-size: 12px;  
+}
+
+.text {
+  color: $zendesc-gray;
+  font-size: 12px;
+}
+
+.name {
+  color: $semi-black;
+}
+
+.name, .text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}

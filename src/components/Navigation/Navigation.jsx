@@ -9,8 +9,11 @@ function Navigation() {
     <div className={styles.root}>
       <div className={styles.links}>
         {/* default route - Профиль */}
-        <NavLink className={styles.link} to="/comments">
+        <NavLink className={styles.link} to="/profile">
           <span>Профиль</span>
+        </NavLink>
+        <NavLink className={styles.link} to="/comments">
+          <span>Комментарии</span>
         </NavLink>
         <NavLink className={styles.link} to="/direct">
           <span>Клиенты</span>
