@@ -21,7 +21,7 @@ function RowComment(props) {
   const cns = {
     client: cn(
       styles.client,
-     
+
       // activeIndex === index && styles.active,
       // hasActiveCall && styles.vox,
       // hasUnresolved && styles.unresolved,
@@ -30,26 +30,25 @@ function RowComment(props) {
   }
 
   return (
-    <></>
-    // <Link className={cns.client} to={`/comment/t/${item.thread_id}`} onClick={ () => setActiveIndex(index) }>
-    //   <div>
-    //     <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
-    //   </div>
-    //   <div className={styles.content}>
-    //     <div className={styles.name}>
-    //       {user.username}
-    //     </div>
 
-    //     <div className={styles.text}>
-    //       Здравствуйте, Мария as da sd asd as dasd 
-    //   </div>
+    <Link className={cns.client} to={`/comments/t/${item.pk}`} onClick={() => setActiveIndex(index)}>
+      {/* <div>
+        <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
+      </div> */}
+      <div className={styles.content}>
+        <div className={styles.name}>
+          {item.caption.text}
+        </div>
 
-    //     <div className={styles.time}>
-    //       66 д. назад
-    //     {/* { lastMessage && !smallMode && this.renderTime(lastMessage.created_at) } */}
-    //     </div>
-    //   </div>
-    // </Link>
+        {/* <div className={styles.text}>
+          Здравствуйте, Мария as da sd asd as dasd
+        </div>
+
+        <div className={styles.time}>
+          66 д. назад
+        </div> */}
+      </div>
+    </Link>
   );
 };
 

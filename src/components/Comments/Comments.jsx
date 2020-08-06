@@ -19,10 +19,10 @@ function Comments() {
 
   return (
     <div className={styles.app}>
-      {/* <Panel panelUrl="http://localhost:3000/getComments" itemComponent={RowComment}/>  */}
+      <Panel panelUrl="http://localhost:3000/getPosts" itemsComponent={RowComment}/> 
       {/* pass hook as param, comments row as component */}
       <Switch>
-        <Route path="/comments/t/:clientId" component={CommentsView} />
+        <Route path="/comments/t/:postId" component={CommentsView} />
         <Route path="/comments" render={renderInbox} />
       </Switch>
     </div>

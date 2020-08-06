@@ -10,19 +10,19 @@ const MAX_CHAT_SYMBOLS = 281
 
 function Form() {
   const [message, setMessage] = useState('')
-  const clientId = useContext(Context);
+  const postId = useContext(Context);
 
   const handleTextInputChange = (e) => {
     e.preventDefault()
     setMessage(e.target.value)
   }
 
-  const sendMessage = async (e) => {
+  const sendMessage = async (e) => { // TODO: make form common component - pass sendMessage funciton 
     e.preventDefault()
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:3000/sendTextMessage',
-      data: { clientId, message }
+      url: 'http://localhost:3000/sendComment',
+      data: { postId, message }
     })
     console.log(res)
     setMessage('')

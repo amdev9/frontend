@@ -29,13 +29,15 @@ function CommentsInbox(props) {
   //   setItems(resItems)
   // }, FETCH_DATA_INTERVAL)
 
-  
+
+  const postId = props.match.params.postId
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios({
         method: 'POST',
         url: 'http://localhost:3000/getComments',
-        // data: { clientId }
+        data: { postId }
       })
 
       const resItems = result.data; //.map(item => ({id: item.item_id, txt: item.text }))
@@ -46,16 +48,16 @@ function CommentsInbox(props) {
     };
 
     fetchData();
-  }, [])
+  }, [postId])
   // clientId -> postId
 
 
   const chatViewHeight = 400
- 
+
   return (
-    // <Context.Provider value={clientId}>
+    <Context.Provider value={postId}>
       <div className={styles.container} >
-        <div className={ styles.adminPanel }>
+        <div className={styles.adminPanel}>
           <Header />
         </div>
 
@@ -66,8 +68,8 @@ function CommentsInbox(props) {
           <Form />
         </div>
       </div>
-      // <ClientDashboard />
-    // </Context.Provider>
+      {/* // <ClientDashboard /> */}
+    </Context.Provider>
   )
 }
 

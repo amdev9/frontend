@@ -9,9 +9,11 @@ import Shepherd from './components/Shepherd'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Home from './components/Home'
+import LiveComments from './components/LiveComments'
 import Comments from './components/Comments'
 import PrivateRoute from './components/PrivateRoute'
 import { AuthContext } from './context/auth'
+
 import styles from './App.module.scss';
 
 function App() {
@@ -33,9 +35,10 @@ function App() {
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/direct" />} />
           <Route path="/login" component={Login} />
-          <PrivateRoute path="/direct" component={Direct} />
           <PrivateRoute path="/profile" component={Home} />
+          <PrivateRoute path="/direct" component={Direct} />
           <PrivateRoute path="/comments" component={Comments} />
+          <PrivateRoute path="/live" component={LiveComments} />
           <PrivateRoute path="/shepherd" component={Shepherd} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="*" component={NotFound} />

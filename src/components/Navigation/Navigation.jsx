@@ -15,6 +15,9 @@ function Navigation() {
         <NavLink className={styles.link} to="/comments">
           <span>Комментарии</span>
         </NavLink>
+        <NavLink className={styles.link} to="/live">
+          <span>Live продажи</span>
+        </NavLink>
         <NavLink className={styles.link} to="/direct">
           <span>Клиенты</span>
         </NavLink>

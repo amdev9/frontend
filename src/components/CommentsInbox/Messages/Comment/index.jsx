@@ -3,14 +3,15 @@
 import React from 'react'
 import cn from 'classnames'
 import { format } from '../../../../helpers/dateFns'
-import styles from './Message.module.scss'
+import styles from './Comment.module.scss'
+import { fromUnixTime } from 'date-fns/esm'
 
-function Message(props) {
+function Comment(props) {
 
   const {   
     user_id,
-    timestamp,
-    item_type,
+    created_at,
+    // item_type,
     text,
     // client_context
     // show_forward_attribution
@@ -89,7 +90,7 @@ function Message(props) {
             <div className={ cn(styles.body, styles.unread) }>
               {/* isAdmin && styles.isAdmin, (isAdmin && !msgData.read_by_user_at) &&  */}
               <div className={ styles.date }>
-                { format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm') }
+                { format(fromUnixTime(created_at), 'dd MMM yyyy HH:mm') }
               </div>
 
               { text }
@@ -107,9 +108,10 @@ function Message(props) {
   return (
     <div className={ cn(styles.msg) }>
       {/*  msg.isTemporary && styles.isTemporary */}
-      { item_type === 'text' && renderTextMessage() }
+      { renderTextMessage() }
+      {/* item_type === 'text' && */}
     </div>
   )
 }
 
-export default Message
+export default Comment

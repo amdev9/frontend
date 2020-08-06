@@ -1,7 +1,7 @@
 
 import React from 'react'
 import cn from 'classnames'
-import Message from './Message'
+import Comment from './Comment'
 import styles from './Messages.module.scss'
 
 function Messages(props) {
@@ -12,7 +12,7 @@ function Messages(props) {
     <div className={styles.wrapper}>
       <div id="view" className={styles.absWrap}>
         <div className={styles.view}>
-          {/* { items.map(item => <Message key={item.item_id} data={item} />) } */}
+          { items.map(item => <Comment key={item.pk} data={item} />) }
         </div>
       </div>
     </div>
