@@ -1,14 +1,14 @@
 
 import React from 'react'
 import axios from 'axios'
-import Profile from '../ClientDashboard/Profile'
+import Products from '../Products'
+import Customers from '../Products'
 
 function Dashboard() {
-
-  
   return (
     <div>
-      <Profile />
+      <Products />
+      <Customers />
     </div>
   )
 }
