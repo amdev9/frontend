@@ -9,22 +9,22 @@ function Navigation() {
     <div className={styles.root}>
       <div className={styles.links}>
         {/* default route - Профиль */}
-        <NavLink className={styles.link} to="/profile">
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/profile">
           <span>Профиль</span>
         </NavLink>
-        <NavLink className={styles.link} to="/direct">
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/direct">
           <span>Клиенты</span>
         </NavLink>
-        <NavLink className={styles.link} to="/comments">
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/comments">
           <span>Комментарии</span>
         </NavLink>
-        <NavLink className={styles.link} to="/live">
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/live">
           <span>Live продажи</span>
         </NavLink>
         {/* <NavLink className={styles.link} to="/shepherd">
           <span>Пастух</span>
         </NavLink> */}
-        <NavLink className={styles.link} to="/dashboard">
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/dashboard">
           <span>Дашборд</span>
         </NavLink>
       </div>
