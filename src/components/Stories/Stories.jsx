@@ -1,14 +1,13 @@
 
-import React, { useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
-import Row from '../Row'
 import SplashScreen from '../SplashScreen'
-import Chat from '../Chat'
+import StoriesInbox from '../StoriesInbox'
 import Panel from '../Panel'
-import styles from './Direct.module.scss'
-
+import RowStory from '../RowStory'
+import styles from './Stories.module.scss'
 
 function useItemsInitialization(url) {
   const [items, setItems] = useState([])
@@ -25,8 +24,8 @@ function useItemsInitialization(url) {
   return items
 }
 
+function Stories() {
 
-function Direct() {
   const renderInbox = () => {
     return (
       <SplashScreen />
@@ -35,13 +34,14 @@ function Direct() {
 
   return (
     <div className={styles.app}>
-      <Panel panelUrl="http://localhost:3000/getThreads" useCustomHook={useItemsInitialization} itemsComponent={Row} />
+      <Panel panelUrl="http://localhost:3000/getStories" useCustomHook={useItemsInitialization} itemsComponent={RowStory}/> 
       <Switch>
-        <Route path="/direct/t/:clientId" component={Chat} />
-        <Route path="/direct" render={renderInbox} />
+        <Route path="/stories/t/:storyId" component={StoriesInbox} />
+        <Route path="/stories" render={renderInbox} />
       </Switch>
     </div>
   )
+
 }
 
-export default Direct
+export default Stories

@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import LiveComments from './components/LiveComments'
 import Comments from './components/Comments'
+import Stories from './components/Stories'
 import PrivateRoute from './components/PrivateRoute'
 import { AuthContext } from './context/auth'
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/login" component={Login} />
           <PrivateRoute path="/profile" component={Home} />
           <PrivateRoute path="/direct" component={Direct} />
+          <PrivateRoute path="/stories" component={Stories} />
           <PrivateRoute path="/comments" component={Comments} />
           <PrivateRoute path="/live" component={LiveComments} />
           <PrivateRoute path="/shepherd" component={Shepherd} />

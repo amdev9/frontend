@@ -13,7 +13,10 @@ function Navigation() {
           <span>Профиль</span>
         </NavLink>
         <NavLink className={styles.link} activeClassName={ styles.active } to="/direct">
-          <span>Клиенты</span>
+          <span>Директ</span>
+        </NavLink>
+        <NavLink className={styles.link} activeClassName={ styles.active } to="/stories">
+          <span>Истории</span>
         </NavLink>
         <NavLink className={styles.link} activeClassName={ styles.active } to="/comments">
           <span>Комментарии</span>

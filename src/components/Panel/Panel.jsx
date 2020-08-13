@@ -31,9 +31,11 @@ function ItemsList({ height, items, activeIndex, setActiveIndex, width, itemComp
 }
 
 function Panel(props) {
-  const { panelUrl, itemsComponent } = props  
-  console.log('props ', props)
-  const items = useItemsInitialization(panelUrl)
+  const { panelUrl, itemsComponent, useCustomHook } = props  
+  
+  const items = useCustomHook(panelUrl)
+
+  console.log('items ', items)
   const [activeIndex, setActiveIndex] = useState(null)
   const [height, setHeight] = useState(window.innerHeight);
   const widgetHeight = useWindowHeight(height, setHeight);
@@ -53,18 +55,3 @@ function Panel(props) {
 }
 
 export default memo(Panel)
-
-function useItemsInitialization(url) {
-  const [items, setItems] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(url)
-      console.log(result.data)
-      setItems(result.data)
-    };
-    fetchData();
-  }, [url])
-
-  return items
-}

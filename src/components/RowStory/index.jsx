@@ -9,7 +9,7 @@ import styles from './Row.module.scss'
 // Consider using PureComponent to avoid unnecessary re-renders.
 // https://reactjs.org/docs/react-api.html#reactpurecomponent
 
-function RowComment(props) {
+function RowStory(props) {
   // Data passed to List as "itemData" is available as props.data
   const { data, index, style } = props
   const { items, activeIndex, setActiveIndex } = data;
@@ -31,13 +31,13 @@ function RowComment(props) {
 
   return (
 
-    <Link className={cns.client} to={`/comments/t/${item.pk}`} onClick={() => setActiveIndex(index)}>
+    <Link className={cns.client} to={`/stories/t/${item.pk}`} onClick={() => setActiveIndex(index)}>
       {/* <div>
         <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
       </div> */}
       <div className={styles.content}>
         <div className={styles.name}>
-          {item.caption && item.caption.text}
+          {item.pk}
         </div>
 
         {/* <div className={styles.text}>
@@ -52,4 +52,4 @@ function RowComment(props) {
   );
 };
 
-export default memo(RowComment, areEqual)
+export default memo(RowStory, areEqual)

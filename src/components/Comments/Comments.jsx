@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
@@ -8,6 +8,22 @@ import CommentsView from '../CommentsInbox'
 import Panel from '../Panel'
 import RowComment from '../RowComment'
 import styles from './Comments.module.scss'
+
+
+function useItemsInitialization(url) {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url)
+      console.log(result.data)
+      setItems(result.data)
+    };
+    fetchData();
+  }, [url])
+
+  return items
+}
 
 function Comments() {
 
@@ -19,7 +35,7 @@ function Comments() {
 
   return (
     <div className={styles.app}>
-      <Panel panelUrl="http://localhost:3000/getPosts" itemsComponent={RowComment}/> 
+      <Panel panelUrl="http://localhost:3000/getPosts" useCustomHook={useItemsInitialization} itemsComponent={RowComment}/> 
       {/* pass hook as param, comments row as component */}
       <Switch>
         <Route path="/comments/t/:postId" component={CommentsView} />
