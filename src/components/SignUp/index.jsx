@@ -15,7 +15,7 @@ function SignUp(props) {
   const { setAuthTokens } = useAuth();
   // const referer = props.location.state.referer || '/';
 
-  function postLogin(e) {
+  function signUpHandler(e) {
     e.preventDefault()
     axios.post("http://localhost:3000/api/auth/register", {
       email,
@@ -84,7 +84,7 @@ function SignUp(props) {
             }}
             placeholder="password"
           />
-          <button className={styles.button} onClick={postLogin}>Sign In</button>
+          <button className={styles.button} onClick={signUpHandler}>Sign Up</button>
         </form>
       </div>
     </div>
