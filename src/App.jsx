@@ -8,6 +8,7 @@ import Direct from './components/Direct'
 import Shepherd from './components/Shepherd'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
+import SignUp from './components/SignUp'
 import Home from './components/Home'
 import LiveComments from './components/LiveComments'
 import Comments from './components/Comments'
@@ -36,6 +37,7 @@ function App() {
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/direct" />} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={SignUp} />
           <PrivateRoute path="/profile" component={Home} />
           <PrivateRoute path="/direct" component={Direct} />
           <PrivateRoute path="/stories" component={Stories} />

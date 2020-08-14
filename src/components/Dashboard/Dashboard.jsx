@@ -10,18 +10,6 @@ import styles from './Dashboard.module.scss'
 
 function Dashboard() {
 
-  const renderContent = () => {
-    return (
-      <Switch>
-        <Route exact path="/dashboard" render={ () => <Redirect to="/dashboard/tasks"/> } />
-        <Route exact path="/dashboard/managers" component={ Managers } />
-        <Route exact path="/dashboard/products" component={ Products } />
-        <Route exact path="/dashboard/tasks" component={ Customers } />
-        <Route exact path="/dashboard/stats" component={ Customers } />
-      </Switch>
-    )
-  }
-
   const renderNavigation = () => {
     return (
       <div className={styles.navigation}>
@@ -42,7 +30,19 @@ function Dashboard() {
       </div>
     )
   }
-  
+
+  const renderContent = () => {
+    return (
+      <Switch>
+        <Route exact path="/dashboard" render={ () => <Redirect to="/dashboard/tasks"/> } />
+        <Route exact path="/dashboard/managers" component={ Managers } />
+        <Route exact path="/dashboard/products" component={ Products } />
+        <Route exact path="/dashboard/tasks" component={ Customers } />
+        <Route exact path="/dashboard/stats" component={ Customers } />
+      </Switch>
+    )
+  }
+
   return (
     <div className={styles.content}>
       { renderNavigation() }
