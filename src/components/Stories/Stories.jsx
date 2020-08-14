@@ -24,8 +24,18 @@ function useItemsInitialization(url) {
   return items
 }
 
+
 function Stories() {
 
+  const uploadStory = async () => {
+    const result = await axios({
+      method: "POST",
+      url: "http://localhost:3000/uploadStorySegment",
+      data: { segmentUsers: ["36115147420"], },
+    })
+    console.log(result.data)
+  }
+  
   const renderInbox = () => {
     return (
       <SplashScreen />
@@ -34,7 +44,11 @@ function Stories() {
 
   return (
     <div className={styles.app}>
-      <Panel panelUrl="http://localhost:3000/getStories" useCustomHook={useItemsInitialization} itemsComponent={RowStory}/> 
+      <Panel panelUrl="http://localhost:3000/getStories" useCustomHook={useItemsInitialization} itemsComponent={RowStory}>
+        <div className={styles.header}>
+          <button className={styles.btn} onClick={uploadStory}>Upload story</button>
+        </div>  
+      </Panel> 
       <Switch>
         <Route path="/stories/t/:storyId" component={StoriesInbox} />
         <Route path="/stories" render={renderInbox} />

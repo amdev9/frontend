@@ -7,6 +7,7 @@ import cn from 'classnames'
 import useWindowHeight from './useWindowHeight'
 import styles from './Panel.module.scss'
 
+
 const createItemData = memoize((items, activeIndex, setActiveIndex) => ({
   items,
   activeIndex,
@@ -31,8 +32,8 @@ function ItemsList({ height, items, activeIndex, setActiveIndex, width, itemComp
 }
 
 function Panel(props) {
-  const { panelUrl, itemsComponent, useCustomHook } = props  
-  
+  const { panelUrl, itemsComponent, useCustomHook } = props
+
   const items = useCustomHook(panelUrl)
 
   console.log('items ', items)
@@ -42,6 +43,8 @@ function Panel(props) {
 
   return (
     <div className={styles.panel}>
+
+      { props.children }
       <ItemsList
         height={widgetHeight - 60}
         items={items}

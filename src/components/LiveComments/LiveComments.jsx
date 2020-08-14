@@ -11,6 +11,23 @@ import RowComment from '../RowComment'
 import styles from './LiveComments.module.scss'
 
 
+
+function useItemsInitialization(url) {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url)
+      console.log(result.data)
+      setItems(result.data)
+    };
+    fetchData();
+  }, [url])
+
+  return items
+}
+
+
 function LiveComments(props) {
 
   const renderInbox = () => {
@@ -52,7 +69,7 @@ function LiveComments(props) {
 
   return (
     <div className={styles.app}>
-      <Panel panelUrl="http://localhost:3000/getBroadcasts" itemsComponent={RowComment}/> 
+      <Panel panelUrl="http://localhost:3000/getBroadcasts" itemsComponent={RowComment} useCustomHook={useItemsInitialization}/> 
       {/* pass hook as param, comments row as component */}
       <Switch>
         <Route path="/live/t/:broadcastId" component={CommentsView} />

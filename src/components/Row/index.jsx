@@ -34,11 +34,11 @@ function Row(props) {
     <Link className={cns.client} to={`/direct/t/${item.thread_id}`} onClick={ () => setActiveIndex(index) }>
 
       <div>
-        <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
+        { user && (<img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />) }
       </div>
       <div className={styles.content}>
         <div className={styles.name}>
-          {user.username}
+          {user && user.username}
         </div>
 
         <div className={styles.text}>
