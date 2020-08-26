@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 import { useAuth } from '../../context/auth'
 import styles from './Login.module.scss'
 
@@ -14,14 +14,14 @@ function Login(props) {
   
   function postLogin(e) {
     e.preventDefault()
-    axios.post("http://localhost:3000/login", {
-      username: userName,
+    axios.post("http://localhost:3000/api/auth/login", {
+      email: userName,
       password
     }).then(result => {
       if (result.status === 200) {
         console.log( 'result ',result)
         
-        setAuthTokens(result.data.accessToken);
+        setAuthTokens(result.data.token);
         setLoggedIn(true);
       } else {
         setIsError(true);
@@ -59,6 +59,9 @@ function Login(props) {
           placeholder="password"
         />
         <button className={ styles.button } onClick={postLogin}>Sign In</button>
+        <Link to="/register">
+          <button className={ styles.button } >Sign Up</button>
+        </Link>
       </form>
     </div>
     </div>

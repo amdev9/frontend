@@ -30,10 +30,14 @@ function Navigation() {
         <NavLink className={styles.link} activeClassName={ styles.active } to="/dashboard">
           <span>Дашборд</span>
         </NavLink>
-
-        <NavLink className={styles.link} activeClassName={ styles.active } to="/register">
+        {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/login">
+          <span>Логин</span>
+        </NavLink> */}
+        {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/register">
           <span>Регистрация</span>
-        </NavLink>
+        </NavLink> */}
+
+
       </div>
     </div>
   )
