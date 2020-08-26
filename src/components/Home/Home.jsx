@@ -1,28 +1,22 @@
 
 import React from 'react'
+import { Redirect } from 'react-router-dom'
+
 import Icon from '../../ui/Icon'
 import { useAuth } from '../../context/auth'
 import styles from './Home.module.scss'
 
-function Home() {
-  const { setAuthTokens } = useAuth();
+import { AuthConsumer } from "../../context/authContext";
 
-  const admin = {
-    name: 'Logged_in_username',
-    email: 'someemail@gmail.com',
-  }
 
-  function logout() {
-    setAuthTokens();
-  }
-
-  // throw new Error('I crashed!');
+const homeProfile = (admin, logout) => {
+  console.log(admin)
   return (
     <div className={styles.root}>
       <div className={styles.head}>
         {/* <UI.Userpic url={admin.avatar_url} code={admin.avatar_code} size={100} /> */}
         <div className={styles.info}>
-          <span>{admin.name}</span>
+          <span>{`${admin.firstName} ${admin.lastName}`}</span>
           <i>{admin.email}</i>
         </div>
 
@@ -33,9 +27,22 @@ function Home() {
           title="Выпилиться из админки"
           onClick={logout}
         />
-
       </div>
     </div>
+  )
+}
+function Home() {
+  
+  
+
+  return (
+    <AuthConsumer>
+      {
+        ({ logout, user }) => {
+          return homeProfile(user, logout)
+        }
+      }
+    </AuthConsumer>
   )
 }
 

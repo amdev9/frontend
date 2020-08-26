@@ -1,4 +1,7 @@
 const rules = {
+  ROLE_MEMBER: {
+    static: ["posts:list", "home-page:visit"],
+  },
   visitor: {
     static: ["posts:list", "home-page:visit"]
   },

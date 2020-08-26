@@ -1,8 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 // import auth0 from "auth0-js";
+import axios from "axios"
 
 // import {AUTH_CONFIG} from "../auth0-variables";
-import {AuthProvider} from "../authContext";
+import { AuthProvider } from "../context/authContext";
 
 // const auth = new auth0.WebAuth({
 //   domain: AUTH_CONFIG.domain,
@@ -21,11 +22,53 @@ class Auth extends Component {
     accessToken: ""
   };
 
-  initiateLogin = () => {
-    console.log('auth.authorize();')
+  initiateLogin = ({ email, password }, e) => {
+    e.preventDefault()
+    axios.post("http://localhost:3000/api/auth/login", {
+      email,
+      password
+    }).then(result => {
+      if (result.status === 200) {
+        console.log('result ', result)
+        this.setSession(result.data); 
+
+        // setAuthTokens(result.data.token);
+        // setLoggedIn(true);
+      } else {
+        // setIsError(true);
+      }
+    }).catch(e => {
+      // setIsError(true);
+    });
+
   };
 
+  signUpHandler = (e, {email, password, firstName, lastName}) => {
+    e.preventDefault()
+    axios.post("http://localhost:3000/api/auth/register", {
+      email,
+      password,
+      lastName,
+      firstName,
+    }).then(result => {
+      if (result.status === 200) {
+        console.log('result ', result)
+        this.setSession(result.data); 
+
+        
+        // setAuthTokens(result.data.accessToken);
+        // setLoggedIn(true);
+      } else {
+        // setIsError(true);
+      }
+    }).catch(e => {
+      // setIsError(true);
+    });
+  }
+
+
   logout = () => {
+    console.log('logout')
     this.setState({
       authenticated: false,
       user: {
@@ -36,7 +79,8 @@ class Auth extends Component {
   };
 
   handleAuthentication = () => {
-    console.log('auth.parseHash', location.hash)
+
+    // console.log('auth.parseHash', location.hash)
     // auth.parseHash((error, authResult) => {
     //   if (error) {
     //     console.log(error);
@@ -49,16 +93,16 @@ class Auth extends Component {
   };
 
   setSession(data) {
-    console.log('===', data)
-    const user = {
-      id: data.sub,
-      email: data.email,
-      role: data[AUTH_CONFIG.roleUrl]
-    };
+    const { user, token } = data
+    // const localUser = {
+    //   id: user.id,
+    //   email: user.email,
+    //   role: user.role,
+    // };
     this.setState({
       authenticated: true,
-      accessToken: data.accessToken,
-      user
+      accessToken: token,
+      user,
     });
   }
 
@@ -67,6 +111,7 @@ class Auth extends Component {
       ...this.state,
       initiateLogin: this.initiateLogin,
       handleAuthentication: this.handleAuthentication,
+      signUpHandler: this.signUpHandler,
       logout: this.logout
     };
     return (

@@ -15,13 +15,14 @@ import Comments from './components/Comments'
 import Stories from './components/Stories'
 import PrivateRoute from './components/PrivateRoute'
 import { AuthContext } from './context/auth'
+import Auth from "./components/Auth";
 
 import styles from './App.module.scss';
 
 function App() {
 
   const tokens = localStorage.getItem('tokens')
-  
+
 
   const [authTokens, setAuthTokens] = useState(tokens || '');
 
@@ -32,22 +33,24 @@ function App() {
 
   return (
     <div>
-      <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-        <Navigation />
-        <Switch>
-          <Route path="/" exact render={() => <Redirect to="/direct" />} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={SignUp} />
-          <PrivateRoute path="/profile" component={Home} />
-          <PrivateRoute path="/direct" component={Direct} />
-          <PrivateRoute path="/stories" component={Stories} />
-          <PrivateRoute path="/comments" component={Comments} />
-          <PrivateRoute path="/live" component={LiveComments} />
-          <PrivateRoute path="/shepherd" component={Shepherd} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute path="*" component={NotFound} />
-        </Switch>
-      </AuthContext.Provider>
+      <Auth>
+        {/* <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}> */}
+          <Navigation />
+          <Switch>
+            <Route path="/" exact render={() => <Redirect to="/profile" />} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={SignUp} />
+            <PrivateRoute path="/profile" component={Home} />
+            <PrivateRoute path="/direct" component={Direct} />
+            <PrivateRoute path="/stories" component={Stories} />
+            <PrivateRoute path="/comments" component={Comments} />
+            <PrivateRoute path="/live" component={LiveComments} />
+            <PrivateRoute path="/shepherd" component={Shepherd} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        {/* </AuthContext.Provider> */}
+      </Auth>
     </div>
   )
 }
