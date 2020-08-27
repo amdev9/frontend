@@ -17,7 +17,7 @@ const createItemData = memoize((items, activeIndex, setActiveIndex) => ({
 function ItemsList({ height, items, activeIndex, setActiveIndex, width, itemComponent }) {
   const itemData = createItemData(items, activeIndex, setActiveIndex);
 
-  console.log(itemComponent)
+  // console.log(itemComponent)
   return (
     <List
       height={height}
@@ -36,7 +36,7 @@ function Panel(props) {
 
   const items = useCustomHook(panelUrl)
 
-  console.log('items ', items)
+  // console.log('items ', items)
   const [activeIndex, setActiveIndex] = useState(null)
   const [height, setHeight] = useState(window.innerHeight);
   const widgetHeight = useWindowHeight(height, setHeight);

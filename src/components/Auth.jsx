@@ -14,13 +14,26 @@ import { AuthProvider } from "../context/authContext";
 // });
 
 class Auth extends Component {
-  state = {
-    authenticated: false,
-    user: {
-      role: "visitor"
-    },
-    accessToken: ""
-  };
+  constructor() {
+    super()
+
+    const tokens = localStorage.getItem('tokens') || ""
+    this.state = {
+      authenticated: false,
+      user: {
+        role: "visitor" // TODO: add user persistance https://joshwcomeau.com/react/persisting-react-state-in-localstorage/
+      },
+      accessToken: tokens,
+    };
+
+    
+
+  }
+  
+  setTokens = (data) => {
+    localStorage.setItem('tokens', JSON.stringify(data) || '');
+    // setAuthTokens(data);
+  }
 
   initiateLogin = ({ email, password }, e) => {
     e.preventDefault()
@@ -29,11 +42,7 @@ class Auth extends Component {
       password
     }).then(result => {
       if (result.status === 200) {
-        console.log('result ', result)
         this.setSession(result.data); 
-
-        // setAuthTokens(result.data.token);
-        // setLoggedIn(true);
       } else {
         // setIsError(true);
       }
@@ -52,10 +61,7 @@ class Auth extends Component {
       firstName,
     }).then(result => {
       if (result.status === 200) {
-        console.log('result ', result)
         this.setSession(result.data); 
-
-        
         // setAuthTokens(result.data.accessToken);
         // setLoggedIn(true);
       } else {
@@ -68,7 +74,6 @@ class Auth extends Component {
 
 
   logout = () => {
-    console.log('logout')
     this.setState({
       authenticated: false,
       user: {
@@ -76,20 +81,6 @@ class Auth extends Component {
       },
       accessToken: ""
     });
-  };
-
-  handleAuthentication = () => {
-
-    // console.log('auth.parseHash', location.hash)
-    // auth.parseHash((error, authResult) => {
-    //   if (error) {
-    //     console.log(error);
-    //     console.log(`Error ${error.error} Occured`);
-    //     return;
-    //   }
-
-    //   this.setSession(authResult.idTokenPayload);
-    // });
   };
 
   setSession(data) {
@@ -104,6 +95,7 @@ class Auth extends Component {
       accessToken: token,
       user,
     });
+    this.setTokens(token)
   }
 
   render() {

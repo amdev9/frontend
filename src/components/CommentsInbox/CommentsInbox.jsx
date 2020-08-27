@@ -42,7 +42,7 @@ function CommentsInbox(props) {
 
       const resItems = result.data; //.map(item => ({id: item.item_id, txt: item.text }))
 
-      console.log(resItems)
+      // console.log(resItems)
 
       setItems(resItems)
     };

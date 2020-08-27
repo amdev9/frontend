@@ -24,7 +24,6 @@ function Form() {
       url: 'http://localhost:3000/sendTextMessage',
       data: { clientId, message }
     })
-    console.log(res)
     setMessage('')
   }
 

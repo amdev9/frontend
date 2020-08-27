@@ -7,25 +7,120 @@ import styles from './Message.module.scss'
 
 function Message(props) {
 
-  const {   
+  const {
     user_id,
     timestamp,
     item_type,
-    text,
+    // text,
     // client_context
     // show_forward_attribution
     // is_shh_mode
   } = props.data
+  console.log('Message props.data ', props.data)
 
+
+
+  const renderLike = () => {
+    return (
+      <div className={cn(styles.wrapper)}>
+        <div className={cn(styles.content)}>
+
+          <div className={cn(styles.body, styles.unread)}>
+
+            <div className={styles.date}>
+              {format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm')}
+            </div>
+
+            {`like`}
+          </div>
+
+        </div>
+      </div>
+    )
+  }
+  const renderRavenMedia = () => {
+    const { item_id } = props.data
+    const isAdmin = false
+    return (
+      <div className={cn(styles.wrapper, isAdmin && styles.isAdmin)}>
+        <div className={cn(styles.content, isAdmin && styles.isAdmin)}>
+          {isAdmin &&
+            <div className={styles.title}>{user_id}</div>}
+
+
+          {Boolean(item_id) &&
+            <div className={cn(styles.body, styles.unread)}>
+              {/* isAdmin && styles.isAdmin, (isAdmin && !msgData.read_by_user_at) &&  */}
+              <div className={styles.date}>
+                {format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm')}
+              </div>
+
+              {`raven_media ${item_id}`}
+            </div>}
+        </div>
+      </div>
+    )
+  }
+
+  const renderReelShare = () => {
+    const { reel_share } = props.data
+    const isAdmin = false
+    return (
+      <div className={cn(styles.wrapper, isAdmin && styles.isAdmin)}>
+        <div className={cn(styles.content, isAdmin && styles.isAdmin)}>
+          {isAdmin &&
+            <div className={styles.title}>{user_id}</div>}
+
+
+          {Boolean(reel_share.text) &&
+            <div className={cn(styles.body, styles.unread)}>
+              {/* isAdmin && styles.isAdmin, (isAdmin && !msgData.read_by_user_at) &&  */}
+              <div className={styles.date}>
+                {format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm')}
+              </div>
+
+              {reel_share.text}
+            </div>}
+        </div>
+      </div>
+    )
+  }
+
+  const renderLinkMessage = () => {
+
+    const { link } = props.data
+    const isAdmin = false
+    return (
+      <div className={cn(styles.wrapper, isAdmin && styles.isAdmin)}>
+        <div className={cn(styles.content, isAdmin && styles.isAdmin)}>
+          {isAdmin &&
+            <div className={styles.title}>{user_id}</div>}
+          {Boolean(link) &&
+            <div className={cn(styles.body, styles.unread)}>
+              {/* isAdmin && styles.isAdmin, (isAdmin && !msgData.read_by_user_at) &&  */}
+              <div className={styles.date}>
+                {format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm')}
+              </div>
+
+              {link.text}
+              {link.link_context.link_title}
+              {link.link_context.link_summary}
+            </div>}
+        </div>
+      </div>
+    )
+
+  }
 
   const renderTextMessage = () => {
 
+    const { text } = props.data
     const isAdmin = false
     return (
-      <div className={ cn(styles.wrapper, isAdmin && styles.isAdmin) }>
-        <div className={ cn(styles.content, isAdmin && styles.isAdmin) }>
-          { isAdmin &&
-            <div className={ styles.title }>{ user_id }</div> }
+      <div className={cn(styles.wrapper, isAdmin && styles.isAdmin)}>
+        <div className={cn(styles.content, isAdmin && styles.isAdmin)}>
+          {isAdmin &&
+            <div className={styles.title}>{user_id}</div>}
 
           {/* { Boolean(hasAttachments) &&
             <div className={ styles.attachments }>
@@ -85,15 +180,15 @@ function Message(props) {
               ) }
             </div> } */}
 
-          { Boolean(text) &&
-            <div className={ cn(styles.body, styles.unread) }>
+          {Boolean(text) &&
+            <div className={cn(styles.body, styles.unread)}>
               {/* isAdmin && styles.isAdmin, (isAdmin && !msgData.read_by_user_at) &&  */}
-              <div className={ styles.date }>
-                { format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm') }
+              <div className={styles.date}>
+                {format(Number(timestamp.slice(0, 13)), 'dd MMM yyyy HH:mm')}
               </div>
 
-              { text }
-            </div> }
+              {text}
+            </div>}
         </div>
 
         {/* { isAdmin && !hideUser &&
@@ -105,9 +200,13 @@ function Message(props) {
   }
 
   return (
-    <div className={ cn(styles.msg) }>
+    <div className={cn(styles.msg)}>
       {/*  msg.isTemporary && styles.isTemporary */}
-      { item_type === 'text' && renderTextMessage() }
+      {item_type === 'text' && renderTextMessage()}
+      {item_type === 'link' && renderLinkMessage()}
+      {item_type === 'like' && renderLike()}
+      {item_type === 'reel_share' && renderReelShare()}
+      {item_type === 'raven_media' && renderRavenMedia()}
     </div>
   )
 }

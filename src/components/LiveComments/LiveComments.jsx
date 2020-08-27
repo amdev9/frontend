@@ -18,7 +18,7 @@ function useItemsInitialization(url) {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(url)
-      console.log(result.data)
+      // console.log(result.data)
       setItems(result.data)
     };
     fetchData();

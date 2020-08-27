@@ -10,7 +10,7 @@ import { AuthConsumer } from "../../context/authContext";
 
 
 const homeProfile = (admin, logout) => {
-  console.log(admin)
+  // console.log(admin)
   return (
     <div className={styles.root}>
       <div className={styles.head}>

@@ -15,7 +15,7 @@ function RowStory(props) {
   const { items, activeIndex, setActiveIndex } = data;
   const item = items[index];
 
-  console.log('item -', item)
+  // console.log('item -', item)
   // const [user] = item.users
   // const src = require('./Untitled.png')
   const cns = {

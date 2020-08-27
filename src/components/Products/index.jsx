@@ -25,19 +25,19 @@ const userList = [
 
 function Products() {
 
-  const createData = async () => {
-    const result = await axios({
-      method: 'POST',
-      url: 'http://localhost:3000/createUser',
-      // data: { postId }
-    })
+  // const createData = async () => {
+  //   const result = await axios({
+  //     method: 'POST',
+  //     url: 'http://localhost:3000/createUser',
+  //     // data: { postId }
+  //   })
 
-    const resItems = result.data; //.map(item => ({id: item.item_id, txt: item.text }))
+  //   const resItems = result.data; //.map(item => ({id: item.item_id, txt: item.text }))
 
-    console.log(resItems)
+  //   console.log(resItems)
 
-    // setItems(resItems)
-  };
+  //   // setItems(resItems)
+  // };
 
   const initialUser = { id: null, name: "", username: "" };
 
@@ -48,7 +48,7 @@ function Products() {
   const addUser = (user) => {
     user.id = users.length + 1;
     setUsers([...users, user]);
-    createData()
+    // createData()
 
   };
 

@@ -15,7 +15,7 @@ function useItemsInitialization(url) {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(url)
-      console.log(result.data)
+      // console.log(result.data)
       setItems(result.data)
     };
     fetchData();
@@ -33,7 +33,7 @@ function Stories() {
       url: "http://localhost:3000/uploadStorySegment",
       data: { segmentUsers: ["36115147420"], },
     })
-    console.log(result.data)
+    // console.log(result.data)
   }
   
   const renderInbox = () => {
