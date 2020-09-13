@@ -9,6 +9,7 @@ import Can from '../Can'
 import { AuthConsumer } from "../../context/authContext";
 import Managers from '../Products'
 import styles from './Dashboard.module.scss'
+import PrivateRoute from '../PrivateRoute'
 
 function Dashboard() {
 
@@ -42,11 +43,11 @@ function Dashboard() {
   const renderContent = () => {
     return (
       <Switch>
-        <Route exact path="/dashboard" render={() => <Redirect to="/dashboard/tasks" />} />
-        <Route exact path="/dashboard/managers" component={Managers} />
-        <Route exact path="/dashboard/products" component={Products} />
-        <Route exact path="/dashboard/tasks" component={Customers} />
-        <Route exact path="/dashboard/stats" component={Customers} />
+        <PrivateRoute exact path="/dashboard" render={() => <Redirect to="/dashboard/tasks" />} />
+        <PrivateRoute exact path="/dashboard/managers" component={Managers} />
+        <PrivateRoute exact path="/dashboard/products" component={Products} />
+        <PrivateRoute exact path="/dashboard/tasks" component={Customers} />
+        <PrivateRoute exact path="/dashboard/stats" component={Customers} />
       </Switch>
     )
   }

@@ -15,21 +15,21 @@ function Navigation() {
         <NavLink className={styles.link} activeClassName={ styles.active } to="/direct">
           <span>Директ</span>
         </NavLink>
-        <NavLink className={styles.link} activeClassName={ styles.active } to="/stories">
+        {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/stories">
           <span>Истории</span>
-        </NavLink>
+        </NavLink> */}
         <NavLink className={styles.link} activeClassName={ styles.active } to="/comments">
           <span>Комментарии</span>
         </NavLink>
-        <NavLink className={styles.link} activeClassName={ styles.active } to="/live">
+        {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/live">
           <span>Live продажи</span>
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink className={styles.link} to="/shepherd">
           <span>Пастух</span>
         </NavLink> */}
-        <NavLink className={styles.link} activeClassName={ styles.active } to="/dashboard">
+        {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/dashboard">
           <span>Дашборд</span>
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink className={styles.link} activeClassName={ styles.active } to="/login">
           <span>Логин</span>
         </NavLink> */}
