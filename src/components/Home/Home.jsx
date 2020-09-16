@@ -17,9 +17,9 @@ function Home() {
   const onSubmit = async (e) => {
 
     const user = localStorage.getItem('user')
-    console.log('user -- ', user)
+    console.log('user -- ', JSON.parse(user).id)
     e.preventDefault()
-    console.log(igUsername, igPassword)
+    console.log(igUsername, igPassword, user.id)
 
     const result = await Axios({
       method: 'POST',
@@ -27,7 +27,7 @@ function Home() {
       data: { 
         username: igUsername, 
         password: igPassword,
-        userId: user.id,
+        userId: JSON.parse(user).id,
       }
     })
     console.log(result)
