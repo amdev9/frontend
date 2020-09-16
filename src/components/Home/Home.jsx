@@ -15,6 +15,9 @@ function Home() {
   const [igPassword, setIgPassword] = useState('')
 
   const onSubmit = async (e) => {
+
+    const user = localStorage.getItem('user')
+    console.log('user -- ', user)
     e.preventDefault()
     console.log(igUsername, igPassword)
 
@@ -23,7 +26,8 @@ function Home() {
       url: 'http://localhost:3000/setIGLoginData',
       data: { 
         username: igUsername, 
-        password: igPassword 
+        password: igPassword,
+        userId: user.id,
       }
     })
     console.log(result)

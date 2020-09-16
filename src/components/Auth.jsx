@@ -17,6 +17,7 @@ class Auth extends Component {
   constructor() {
     super()
 
+    
     const tokens = localStorage.getItem('tokens') || ""
     this.state = {
       authenticated: false,
@@ -30,6 +31,13 @@ class Auth extends Component {
 
   }
   
+  setUser = (data) => {
+    localStorage.setItem('user', JSON.stringify(data) || {
+      role: "visitor" 
+    });
+    // setAuthTokens(data);
+  }
+
   setTokens = (data) => {
     localStorage.setItem('tokens', JSON.stringify(data) || '');
     // setAuthTokens(data);
@@ -95,6 +103,7 @@ class Auth extends Component {
       accessToken: token,
       user,
     });
+    this.setUser(user)
     this.setTokens(token)
   }
 
