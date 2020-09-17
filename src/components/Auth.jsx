@@ -38,6 +38,16 @@ class Auth extends Component {
     // setAuthTokens(data);
   }
 
+  setToken = token => {
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = token;
+    } else {
+      delete axios.defaults.headers.common['Authorization'];
+    }
+  };
+  
+  
+
   setTokens = (data) => {
     localStorage.setItem('tokens', JSON.stringify(data) || '');
     // setAuthTokens(data);
@@ -104,6 +114,7 @@ class Auth extends Component {
       user,
     });
     this.setUser(user)
+    this.setToken(token)
     this.setTokens(token)
   }
 
