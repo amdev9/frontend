@@ -23,7 +23,7 @@ function Home() {
 
     const result = await Axios({
       method: 'POST',
-      url: 'http://localhost:3000/setIGLoginData',
+      url: 'http://localhost:3000/api/insta/setIGLoginData',
       data: { 
         username: igUsername, 
         password: igPassword,
