@@ -16,9 +16,7 @@ function Message(props) {
     // show_forward_attribution
     // is_shh_mode
   } = props.data
-  console.log('Message props.data ', props.data)
-
-
+  
 
   const renderLike = () => {
     return (

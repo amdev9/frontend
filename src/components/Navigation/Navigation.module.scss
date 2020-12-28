@@ -1,7 +1,28 @@
 @import '../../assets/vars.scss';
 
+
+
+// header {
+//   background-color: #ccc;
+//   flex-basis: 50px;
+  
+//   /*ie10*/
+//   -ms-flex-preferred-size: 50px;
+  
+//   /*center align of links*/
+//   display: flex;
+//   align-items: center; /*vertical*/
+//   justify-content: space-around; /*or space-between*/
+//   /*ie10*/
+//   display: -ms-flexbox;
+//   -ms-flex-align: center; /*vertical*/
+//   -ms-flex-line-pack: distribute; /*or justify*/
+// }
+
+
 .root {
   width: 100%;
+  
   height: 60px;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.08);  
 }

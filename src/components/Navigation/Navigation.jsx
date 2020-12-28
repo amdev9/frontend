@@ -5,8 +5,10 @@ import styles from './Navigation.module.scss'
 
 
 function Navigation() {
+
+  // // <div className={styles.root}>
   return (
-    <div className={styles.root}>
+    <header className={styles.root}>
       <div className={styles.links}>
         {/* default route - Профиль */}
         <NavLink className={styles.link} activeClassName={ styles.active } to="/profile">
@@ -39,7 +41,7 @@ function Navigation() {
 
 
       </div>
-    </div>
+    </header>
   )
 }
 

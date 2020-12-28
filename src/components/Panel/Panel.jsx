@@ -40,13 +40,15 @@ function Panel(props) {
   const [activeIndex, setActiveIndex] = useState(null)
   const [height, setHeight] = useState(window.innerHeight);
   const widgetHeight = useWindowHeight(height, setHeight);
-
+  console.log(widgetHeight)
   return (
-    <div className={styles.panel}>
+    //className={styles.panel}
+        <div >
 
       { props.children }
       <ItemsList
-        height={widgetHeight - 60}
+        height={widgetHeight }
+        // - 60
         items={items}
         width={300}
         activeIndex={activeIndex}

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import Icon from '../../ui/Icon'
@@ -11,27 +11,46 @@ import Axios from 'axios'
 
 function Home() {
 
+
+  const [user, setUser] = useState(null)
   const [igUsername, setIgUsername] = useState('')
   const [igPassword, setIgPassword] = useState('')
 
-  const onSubmit = async (e) => {
+  // const onSubmit = async (e) => {
 
-    const user = localStorage.getItem('user')
-    console.log('user -- ', JSON.parse(user).id)
-    e.preventDefault()
-    console.log(igUsername, igPassword, user.id)
+  useEffect(() => {
+    // const user = localStorage.getItem('user')//
+    const setIg = async () => {
+      const user = {
+        username: "testinsta9991",
+        password: "qwe123qweqwe",
+        userId: 1,
+      }
 
-    const result = await Axios({
-      method: 'POST',
-      url: 'http://localhost:3000/api/insta/setIGLoginData',
-      data: { 
-        username: igUsername, 
-        password: igPassword,
-        userId: JSON.parse(user).id,
+      // console.log('user -- ', JSON.parse(user).id)
+      // e.preventDefault()
+      // console.log(igUsername, igPassword, user.id)
+
+      const result = await Axios({
+        method: 'POST',
+        url: 'http://localhost:3000/api/insta/setIGLoginData',
+        data: user,
+        // { 
+        //   username: igUsername, 
+        //   password: igPassword,
+        //   userId: JSON.parse(user).id,
+        // }
+      })
+      return result
+    }
+    setIg().then((res) => {
+      if(res.data.success) {
+        console.log(res.data.existingUser)
+        setUser(res.data.existingUser)
       }
     })
-    console.log(result)
-  }
+
+  }, [])
 
   const homeProfile = (admin, logout) => {
     return (
@@ -53,6 +72,9 @@ function Home() {
     )
   }
 
+  if (user) {
+    return <Redirect to="/direct"/>
+  }
 
   return (
     <AuthConsumer>
@@ -63,15 +85,15 @@ function Home() {
             <div className={styles.root}>
               <div className={styles.head}>
 
-                {homeProfile(user, logout)}
+                {/* {homeProfile(user, logout)}
                 <form onSubmit={onSubmit}>
-                  {/* className={''} */}
+                   
                   <label>Добавить профиль инстаграм</label>
                   <input name="username" placeholder="username" value={igUsername} onChange={(e) => setIgUsername(e.target.value)} />
                   <input name="password" placeholder="password" value={igPassword} onChange={(e) => setIgPassword(e.target.value)} />
                   <input type="submit" />
                 </form>
-                
+                 */}
 
               </div>
             </div>

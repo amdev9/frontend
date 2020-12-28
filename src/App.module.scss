@@ -30,3 +30,13 @@ body, html {
     }
   }
 }
+
+.fcontainer {
+  height: 100vh; /* for shorter content */
+  display: flex;
+  flex-direction: column;
+    
+  /*ie10*/
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+}

@@ -7,6 +7,7 @@ import Row from '../Row'
 import SplashScreen from '../SplashScreen'
 import Chat from '../Chat'
 import Panel from '../Panel'
+import Navigation from '../Navigation'
 import styles from './Direct.module.scss'
 
 
@@ -34,12 +35,16 @@ function Direct() {
   }
 
   return (
+    <div>
+    <Navigation />
     <div className={styles.app}>
+      
       <Panel panelUrl="http://localhost:3000/getThreads" useCustomHook={useItemsInitialization} itemsComponent={Row} />
       <Switch>
         <Route path="/direct/t/:clientId" component={Chat} />
         <Route path="/direct" render={renderInbox} />
       </Switch>
+    </div>
     </div>
   )
 }

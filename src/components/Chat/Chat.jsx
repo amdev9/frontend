@@ -49,7 +49,7 @@ function Chat(props) {
   }, [clientId])
 
 
-  const chatViewHeight = 400
+  // const chatViewHeight = 400
  
   return (
     <Context.Provider value={clientId}>
@@ -58,7 +58,8 @@ function Chat(props) {
           <Header />
         </div>
 
-        <div className={styles.chatView} style={{ height: chatViewHeight }}>
+        <div className={styles.chatView}>
+          {/*  style={{ height: chatViewHeight }} */}
           <Messages items={items} />
         </div>
         <div className={styles.chatForm} >

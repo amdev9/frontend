@@ -30,8 +30,8 @@ function RowComment(props) {
   }
 
   return (
-
-    <Link className={cns.client} to={`/comments/t/${item.pk}`} onClick={() => setActiveIndex(index)}>
+    // className={cns.client}
+    <Link  to={`/comments/t/${item.pk}`} onClick={() => setActiveIndex(index)}>
       {/* <div>
         <img className={styles.thumb} src={user.profile_pic_url} alt={user.full_name} />
       </div> */}

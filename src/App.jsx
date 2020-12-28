@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import cn from 'classnames'
 
-import Navigation from './components/Navigation'
+
 import NotFound from './components/NotFound'
 import Direct from './components/Direct'
 import Shepherd from './components/Shepherd'
@@ -32,21 +32,21 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={styles.fcontainer}>
       <Auth>
         {/* <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}> */}
-          <Navigation />
+          
           <Switch>
             <Route path="/" exact render={() => <Redirect to="/profile" />} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={SignUp} />
-            <PrivateRoute path="/profile" component={Home} />
-            <PrivateRoute path="/direct" component={Direct} />
-            <PrivateRoute path="/stories" component={Stories} />
-            <PrivateRoute path="/comments" component={Comments} />
-            <PrivateRoute path="/live" component={LiveComments} />
-            <PrivateRoute path="/shepherd" component={Shepherd} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
+            {/* <Route path="/login" component={Login} /> */}
+            {/* <Route path="/register" component={SignUp} /> */}
+            <Route path="/profile" component={Home} />
+            <Route path="/direct" component={Direct} />
+            <Route path="/stories" component={Stories} />
+            <Route path="/comments" component={Comments} />
+            <Route path="/live" component={LiveComments} />
+            <Route path="/shepherd" component={Shepherd} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="*" component={NotFound} />
           </Switch>
         {/* </AuthContext.Provider> */}
