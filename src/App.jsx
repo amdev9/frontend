@@ -21,6 +21,7 @@ import styles from './App.module.scss';
 
 function App() {
 
+  // TODO: migrate to official api
   const tokens = localStorage.getItem('tokens')
 
 
