@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { FacebookProvider, LoginButton } from 'react-facebook';
 import cn from 'classnames'
 
 
@@ -21,6 +22,13 @@ import styles from './App.module.scss';
 
 function App() {
 
+  const handleResponse = (data) => {
+    console.log(data);
+  }
+
+  const handleError = (error) => {
+    this.setState({ error });
+  }
   // TODO: migrate to official api
   const tokens = localStorage.getItem('tokens')
 
@@ -34,13 +42,28 @@ function App() {
 
   return (
     <div className={styles.fcontainer}>
-      <Auth>
-        {/* <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}> */}
+
+      {/* TODO: use this button https://github.com/seeden/react-facebook#login-button */}
+      {/* <a href="http://localhost:8080/facebook">Log in with Facebook</a> */}
+  
+      <FacebookProvider appId="259458378974943">
+        <LoginButton
+          scope="email"
+          onCompleted={handleResponse}
+          onError={handleError}
+        >
+          <span>Login via Facebook</span>
+        </LoginButton>
+      </FacebookProvider>
+      
+
+      {/* <Auth>
+        <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
           
           <Switch>
             <Route path="/" exact render={() => <Redirect to="/profile" />} />
-            {/* <Route path="/login" component={Login} /> */}
-            {/* <Route path="/register" component={SignUp} /> */}
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={SignUp} />
             <Route path="/profile" component={Home} />
             <Route path="/direct" component={Direct} />
             <Route path="/stories" component={Stories} />
@@ -50,8 +73,8 @@ function App() {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="*" component={NotFound} />
           </Switch>
-        {/* </AuthContext.Provider> */}
-      </Auth>
+        </AuthContext.Provider>
+      </Auth> */}
     </div>
   )
 }
