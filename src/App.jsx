@@ -46,7 +46,7 @@ function App() {
       {/* TODO: use this button https://github.com/seeden/react-facebook#login-button */}
       {/* <a href="http://localhost:8080/facebook">Log in with Facebook</a> */}
   
-      <FacebookProvider appId="259458378974943">
+      {/* <FacebookProvider appId="259458378974943">
         <LoginButton
           scope="email"
           onCompleted={handleResponse}
@@ -55,9 +55,9 @@ function App() {
           <span>Login via Facebook</span>
         </LoginButton>
       </FacebookProvider>
-      
+       */}
 
-      {/* <Auth>
+      <Auth>
         <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
           
           <Switch>
@@ -74,7 +74,7 @@ function App() {
             <Route path="*" component={NotFound} />
           </Switch>
         </AuthContext.Provider>
-      </Auth> */}
+      </Auth>
     </div>
   )
 }

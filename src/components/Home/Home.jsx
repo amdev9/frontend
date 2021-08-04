@@ -22,14 +22,15 @@ function Home() {
     // const user = localStorage.getItem('user')//
     const setIg = async () => {
       const user = {
-        username: "testinsta9991",
-        password: "qwe123qweqwe",
+        username: "chatmarketio",
+        password: "qwe123qweqweqwe",
         userId: 1,
       }
 
       // console.log('user -- ', JSON.parse(user).id)
       // e.preventDefault()
       // console.log(igUsername, igPassword, user.id)
+
 
       const result = await Axios({
         method: 'POST',
