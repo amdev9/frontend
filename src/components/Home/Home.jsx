@@ -22,8 +22,8 @@ function Home() {
     // const user = localStorage.getItem('user')//
     const setIg = async () => {
       const user = {
-        username: "chatmarketio",
-        password: "qwe123qweqweqwe",
+        username: "test0123111",
+        password: "qwe123qwe``QWE",
         userId: 1,
       }
 
